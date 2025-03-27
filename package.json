@@ -1,0 +1,64 @@
+{
+  "private": false,
+  "name": "auth0-action-types",
+  "version": "0.0.1",
+  "description": "TypeScript types for Auth0 Actions",
+  "license": "Apache-2.0",
+  "author": "Jonathan Darrer <jonny@jondarrer.me.uk>",
+  "homepage": "https://github.com/jondarrer/auth0-action-types#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jondarrer/auth0-action-types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jondarrer/auth0-action-types/issues"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "bump": "npm version patch && git push --tags",
+    "lint-staged": "lint-staged",
+    "prepare": "husky",
+    "test": "node --import tsx --test \"src/**/*.test.ts\""
+  },
+  "types": "dist/src/index.d.ts",
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.14.0",
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "prettier-package-json": "^2.8.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1"
+  },
+  "keywords": [
+    "Auth0"
+  ],
+  "engines": {
+    "node": "^18.20.0 || ^20.12.1 || ^22.0.0"
+  },
+  "lint-staged": {
+    "**/package.json": [
+      "prettier-package-json --write",
+      "git add"
+    ],
+    "src/**/*.ts": [
+      "eslint --fix --quiet",
+      "prettier --single-quote --trailing-comma es5 --write",
+      "git add"
+    ]
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "target": "esnext"
+}

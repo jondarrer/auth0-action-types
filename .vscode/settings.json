@@ -1,0 +1,27 @@
+{
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "prettier.requireConfig": true,
+  "editor.tabSize": 2,
+  "eslint.enable": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "nodejs-testing.extensions": [
+    {
+      "extensions": ["ts"],
+      "parameters": ["--import", "tsx", "--disable-warning", "ExperimentalWarning", "--experimental-test-module-mocks"]
+    }
+  ]
+}
