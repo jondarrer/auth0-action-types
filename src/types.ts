@@ -1,6 +1,6 @@
 export type TPrimitiveType = 'object' | 'array' | 'string' | 'number' | 'boolean' | 'function';
 
-export type TTSType = TPrimitiveType | 'unknown' | 'any';
+export type TTSType = TPrimitiveType | 'unknown' | 'any' | 'unknown[]' | 'Map';
 
 export enum EPageKind {
   EventObject = 'EventObject',

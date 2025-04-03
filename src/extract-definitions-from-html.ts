@@ -82,13 +82,54 @@ export const extractApiObjectDefinitionsFromHtml = ($: cheerio.CheerioAPI): Reco
   return extractedEntities;
 };
 
-// export const extractEventObjectDefinitionsFromHtml = (html: string): Record<string, IExtractedEntity> => {
-//   return {} as Record<string, IExtractedEntity>;
-// };
+export const extractEventObjectDefinitionsFromHtml = ($: cheerio.CheerioAPI): Record<string, IExtractedEntity> => {
+  const extractedEntities: Record<string, IExtractedEntity> = {};
+  let entity: IExtractedEntity;
 
-const determineTSType = (type: string | undefined) => {
+  $('table > tbody > tr').each((_i, element) => {
+    const entityName = $('td:nth-child(1) > p > code', element).text().trim();
+    const entityDescription = $('td:nth-child(2) > p:nth-child(1)', element).text().trim();
+    entity = {
+      id: entityName,
+      type: 'object',
+      descriptions: [entityDescription],
+    } as IExtractedEntity;
+    extractedEntities[entityName] = entity;
+
+    $('td:nth-child(2) > ul > li', element).each((_j, li) => {
+      let propName = $('> code', li).text().trim();
+      let propType = $('> em', li).text().trim();
+      propName = `${entity.id}.${propName}`;
+      propType = determineTSType(propType);
+      const propDescription = $('> span', li).text().trim();
+      const property = {
+        id: propName,
+        type: propType,
+        descriptions: [propDescription],
+      } as IExtractedEntity;
+      extractedEntities[propName] = property;
+
+      $('> ul > li', li).each((_k, sli) => {
+        let subPropName = $('> code', sli).text().trim();
+        let subPropType = $('> em', sli).text().trim();
+        subPropName = `${propName}.${subPropName}`;
+        subPropType = determineTSType(subPropType);
+        const subProperty = {
+          id: subPropName,
+          type: subPropType,
+          descriptions: [],
+        } as IExtractedEntity;
+        extractedEntities[subPropName] = subProperty;
+      });
+    });
+  });
+  return extractedEntities;
+};
+
+const determineTSType = (type: string | undefined): TTSType => {
   switch (type) {
     case 'String':
+    case 'Optional string':
       return 'string';
     case 'Object':
       return 'object';
@@ -101,7 +142,11 @@ const determineTSType = (type: string | undefined) => {
     case 'Boolean':
       return 'boolean';
     case 'Number':
+    case 'Optional number':
       return 'number';
+    case 'Dictionary':
+    case 'Optional dictionary':
+      return 'Map';
     case 'BooleanShould':
     // return 'BooleanShould';
     case 'StringOptional':
