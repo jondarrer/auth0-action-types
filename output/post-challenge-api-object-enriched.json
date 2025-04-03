@@ -1,0 +1,463 @@
+{
+  "api.access": {
+    "id": "api.access",
+    "type": "object",
+    "descriptions": [
+      "Modify the user's login access, such as by rejecting the login attempt."
+    ],
+    "title": "ApiAccess",
+    "parentId": "api",
+    "globalName": "ApiAccess"
+  },
+  "api.access.deny": {
+    "id": "api.access.deny",
+    "type": "function",
+    "paramNames": [
+      "reason"
+    ],
+    "descriptions": [
+      "Mark the current login attempt as denied. This prevents the end-user\n    from completing the login flow. This does  not  cancel other user-related side effects requested by this Action, such as metadata changes. The login flow immediately stops following the completion of \n    this action and no further Actions will be executed.",
+      "Returns a reference to the api object."
+    ],
+    "title": "deny",
+    "parentId": "api.access",
+    "globalName": "ApiAccessDeny",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.access.deny.reason": {
+    "id": "api.access.deny.reason",
+    "type": "string",
+    "descriptions": [
+      "String. A human-readable explanation for rejecting the\n            login. This may be presented directly in end-user interfaces."
+    ],
+    "title": "reason",
+    "parentId": "api.access.deny",
+    "globalName": "ApiAccessDenyReason"
+  },
+  "api.authentication": {
+    "id": "api.authentication",
+    "type": "object",
+    "descriptions": [
+      "Request changes to the authentication state of the current user's session."
+    ],
+    "title": "ApiAuthentication",
+    "parentId": "api",
+    "globalName": "ApiAuthentication"
+  },
+  "api.authentication.challengeWith": {
+    "id": "api.authentication.challengeWith",
+    "type": "function",
+    "paramNames": [
+      "factor",
+      "[options]"
+    ],
+    "descriptions": [
+      "Request a challenge for multifactor authentication using the supplied factor and optional additional factors.",
+      "When a multifactor challenge is requested, subsequent Actions will not run until that challenge is fulfilled by the user. A user can satisfy this challenge by:",
+      "Note: If the user has not already satisfied the requirements of the challenge, they are presented with a factor challenge screen. If additionalFactors are supplied, the user can choose to authenticate with a different factor than the default challenge."
+    ],
+    "title": "challengeWith",
+    "parentId": "api.authentication",
+    "globalName": "ApiAuthenticationChallengeWith",
+    "returnDescription": "Note: If the user has not already satisfied the requirements of the challenge, they are presented with a factor challenge screen. If additionalFactors are supplied, the user can choose to authenticate with a different factor than the default challenge.",
+    "returnEntityType": "unknown"
+  },
+  "api.authentication.challengeWith.factor": {
+    "id": "api.authentication.challengeWith.factor",
+    "type": "unknown",
+    "descriptions": [
+      "FactorSelector. An object describing the type of factor (and its options) that should be used for the initial challenge."
+    ],
+    "title": "factor",
+    "parentId": "api.authentication.challengeWith",
+    "globalName": "ApiAuthenticationChallengeWithFactor"
+  },
+  "api.authentication.challengeWith.options": {
+    "id": "api.authentication.challengeWith.options",
+    "type": "object",
+    "descriptions": [
+      "Optional Object. Additional options that can also specify additionalFactors as a property."
+    ],
+    "title": "options",
+    "parentId": "api.authentication.challengeWith",
+    "globalName": "ApiAuthenticationChallengeWithOptions"
+  },
+  "api.authentication.challengeWithAny": {
+    "id": "api.authentication.challengeWithAny",
+    "type": "function",
+    "paramNames": [
+      "[factors]"
+    ],
+    "descriptions": [
+      "Request a challenge for multifactor authentication using any of the supplied factors or optional additional factors.",
+      "When a multifactor challenge is requested, subsequent Actions will not run until that challenge is fulfilled by the user. A user can satisfy this challenge by:",
+      "Note: If the user has not already satisfied the requirements of the challenge, they are presented with a factor challenge screen. If there is a specific preferred factor, the api.authentication.challengeWith() method is preferred."
+    ],
+    "title": "challengeWithAny",
+    "parentId": "api.authentication",
+    "globalName": "ApiAuthenticationChallengeWithAny",
+    "returnDescription": "Note: If the user has not already satisfied the requirements of the challenge, they are presented with a factor challenge screen. If there is a specific preferred factor, the api.authentication.challengeWith() method is preferred.",
+    "returnEntityType": "unknown"
+  },
+  "api.authentication.challengeWithAny.factor": {
+    "id": "api.authentication.challengeWithAny.factor",
+    "type": "unknown",
+    "descriptions": [
+      "FactorSelector[]. An array of factors."
+    ],
+    "title": "factor",
+    "parentId": "api.authentication.challengeWithAny",
+    "globalName": "ApiAuthenticationChallengeWithAnyFactor"
+  },
+  "api.cache": {
+    "id": "api.cache",
+    "type": "object",
+    "descriptions": [
+      "Store and retrieve data that persists across executions."
+    ],
+    "title": "ApiCache",
+    "parentId": "api",
+    "globalName": "ApiCache"
+  },
+  "api.cache.delete": {
+    "id": "api.cache.delete",
+    "type": "function",
+    "paramNames": [
+      "key"
+    ],
+    "descriptions": [
+      "Delete a record describing a cached value at the supplied key if it exists.",
+      "Returns a CacheWriteResult object with  type: \"success\" if a value was removed from the cache. A failed operation returns type: \"error\".",
+      "For errors, the returned object includes a code property that indicates the nature of the failure."
+    ],
+    "title": "delete",
+    "parentId": "api.cache",
+    "globalName": "ApiCacheDelete",
+    "returnDescription": "For errors, the returned object includes a code property that indicates the nature of the failure.",
+    "returnEntityType": "unknown"
+  },
+  "api.cache.delete.key": {
+    "id": "api.cache.delete.key",
+    "type": "string",
+    "descriptions": [
+      "String. The key of the record stored in the cache."
+    ],
+    "title": "key",
+    "parentId": "api.cache.delete",
+    "globalName": "ApiCacheDeleteKey"
+  },
+  "api.cache.get": {
+    "id": "api.cache.get",
+    "type": "function",
+    "paramNames": [
+      "key"
+    ],
+    "descriptions": [
+      "Retrieve a record describing a cached value at the supplied\n    key, if it exists. If a record is found, the cached value can\n    be found at the value property of the returned object.",
+      "Returns a cache record if an item is found in the cache for the supplied\n    key. Cache records are objects containing the following properties:",
+      "",
+      "Important:\n    This cache is designed for short-lived, ephemeral data. Items may not be available in later transactions even if they are within their supplied their lifetime."
+    ],
+    "title": "get",
+    "parentId": "api.cache",
+    "globalName": "ApiCacheGet",
+    "returnDescription": "Important:\n    This cache is designed for short-lived, ephemeral data. Items may not be available in later transactions even if they are within their supplied their lifetime.",
+    "returnEntityType": "unknown"
+  },
+  "api.cache.get.key": {
+    "id": "api.cache.get.key",
+    "type": "string",
+    "descriptions": [
+      "String. The key of the record stored in the cache."
+    ],
+    "title": "key",
+    "parentId": "api.cache.get",
+    "globalName": "ApiCacheGetKey"
+  },
+  "api.cache.set": {
+    "id": "api.cache.set",
+    "type": "function",
+    "paramNames": [
+      "key",
+      "value",
+      "[options]"
+    ],
+    "descriptions": [
+      "Store or update a string value in the cache at the specified key.",
+      "Values stored in this cache are scoped to the Trigger in which they are set.\n    They are subject to the\n    Actions Cache Limits.",
+      "Values stored in this way can have lifetimes of up to the specified\n    ttl or expires_at values. If no lifetime is\n    specified, a default of lifetime of 15 minutes is used. Lifetimes cannot exceed the maximum duration listed in the\n    Actions Cache Limits."
+    ],
+    "title": "set",
+    "parentId": "api.cache",
+    "globalName": "ApiCacheSet",
+    "returnDescription": "Values stored in this way can have lifetimes of up to the specified\n    ttl or expires_at values. If no lifetime is\n    specified, a default of lifetime of 15 minutes is used. Lifetimes cannot exceed the maximum duration listed in the\n    Actions Cache Limits.",
+    "returnEntityType": "unknown"
+  },
+  "api.cache.set.key": {
+    "id": "api.cache.set.key",
+    "type": "string",
+    "descriptions": [
+      "String. The key of the record stored in the cache."
+    ],
+    "title": "key",
+    "parentId": "api.cache.set",
+    "globalName": "ApiCacheSetKey"
+  },
+  "api.cache.set.value": {
+    "id": "api.cache.set.value",
+    "type": "string",
+    "descriptions": [
+      "String. The value of the record to be stored."
+    ],
+    "title": "value",
+    "parentId": "api.cache.set",
+    "globalName": "ApiCacheSetValue"
+  },
+  "api.cache.set.options": {
+    "id": "api.cache.set.options",
+    "type": "object",
+    "descriptions": [
+      "Optional object. Options for adjusting cache behavior."
+    ],
+    "title": "options",
+    "parentId": "api.cache.set",
+    "globalName": "ApiCacheSetOptions"
+  },
+  "api.cache.set.options.expires_at": {
+    "id": "api.cache.set.options.expires_at",
+    "type": "unknown",
+    "descriptions": [
+      "Optional number. The absolute expiry time in milliseconds\n            since the Unix epoch. While cached records may be evicted earlier, they will never remain beyond the the supplied             expires_at.",
+      "Note: This value should not be supplied if ttl value is provided. If values are supplied for both options, the earlier expiry of the two is used."
+    ],
+    "title": "ApiCacheSetOptionsExpires_at",
+    "parentId": "api.cache.set.options",
+    "globalName": "ApiCacheSetOptionsExpires_at"
+  },
+  "api.cache.set.options.ttl": {
+    "id": "api.cache.set.options.ttl",
+    "type": "unknown",
+    "descriptions": [
+      "Optional number. The time-to-live value of this cache entry\n            in milliseconds. While cached values may be evicted earlier, they will never remain beyond the the supplied ttl.",
+      "Note: This value should not be supplied if a  expires_at value is provided. If values are supplied for both options, the earlier expiry of the two is used."
+    ],
+    "title": "ApiCacheSetOptionsTtl",
+    "parentId": "api.cache.set.options",
+    "globalName": "ApiCacheSetOptionsTtl"
+  },
+  "api.redirect": {
+    "id": "api.redirect",
+    "type": "object",
+    "descriptions": [],
+    "title": "ApiRedirect",
+    "parentId": "api",
+    "globalName": "ApiRedirect"
+  },
+  "api.redirect.encodeToken": {
+    "id": "api.redirect.encodeToken",
+    "type": "function",
+    "paramNames": [
+      "options"
+    ],
+    "descriptions": [
+      "Create a session token that is suitable for use as a query string parameter redirect target (via sendUserTo) and contains data whose authenticity must be provable by the target endpoint. The target endpoint\n      can verify the authenticity and integrity of the data by checking the\n      JWT's signature using a shared secret.",
+      "Returns a JWT string."
+    ],
+    "title": "encodeToken",
+    "parentId": "api.redirect",
+    "globalName": "ApiRedirectEncodeToken",
+    "returnDescription": "Returns a JWT string.",
+    "returnEntityType": "JwtString"
+  },
+  "api.redirect.encodeToken.options": {
+    "id": "api.redirect.encodeToken.options",
+    "type": "object",
+    "descriptions": [
+      "Options. Configure how sensitive data is encoded into the\n              query parameters of the resulting url."
+    ],
+    "title": "options",
+    "parentId": "api.redirect.encodeToken",
+    "globalName": "ApiRedirectEncodeTokenOptions"
+  },
+  "api.redirect.encodeToken.options.expiresInSeconds": {
+    "id": "api.redirect.encodeToken.options.expiresInSeconds",
+    "type": "number",
+    "descriptions": [
+      "Number. Number of seconds before the token expires. Default is 900."
+    ],
+    "title": "ApiRedirectEncodeTokenOptionsExpiresInSeconds",
+    "parentId": "api.redirect.encodeToken.options",
+    "globalName": "ApiRedirectEncodeTokenOptionsExpiresInSeconds"
+  },
+  "api.redirect.encodeToken.options.payload": {
+    "id": "api.redirect.encodeToken.options.payload",
+    "type": "object",
+    "descriptions": [
+      "Options. The data intended to be passed to the target of\n              the redirect and whose authenticity and integrity must be\n              provable."
+    ],
+    "title": "ApiRedirectEncodeTokenOptionsPayload",
+    "parentId": "api.redirect.encodeToken.options",
+    "globalName": "ApiRedirectEncodeTokenOptionsPayload"
+  },
+  "api.redirect.encodeToken.options.secret": {
+    "id": "api.redirect.encodeToken.options.secret",
+    "type": "string",
+    "descriptions": [
+      "String. A secret that will be used to sign a JWT shared with the redirect target. This value should be stored\n              as a secret and retrieved using\n              event.secrets['SECRET_NAME']."
+    ],
+    "title": "ApiRedirectEncodeTokenOptionsSecret",
+    "parentId": "api.redirect.encodeToken.options",
+    "globalName": "ApiRedirectEncodeTokenOptionsSecret"
+  },
+  "api.redirect.sendUserTo": {
+    "id": "api.redirect.sendUserTo",
+    "type": "function",
+    "paramNames": [
+      "url",
+      "options"
+    ],
+    "descriptions": [
+      "Trigger a browser redirect to the target url immediately after the\n      action completes.",
+      "Returns a reference to the api object."
+    ],
+    "title": "sendUserTo",
+    "parentId": "api.redirect",
+    "globalName": "ApiRedirectSendUserTo",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.redirect.sendUserTo.url": {
+    "id": "api.redirect.sendUserTo.url",
+    "type": "string",
+    "descriptions": [
+      "String. The target URL of the redirect."
+    ],
+    "title": "url",
+    "parentId": "api.redirect.sendUserTo",
+    "globalName": "ApiRedirectSendUserToUrl"
+  },
+  "api.redirect.sendUserTo.options": {
+    "id": "api.redirect.sendUserTo.options",
+    "type": "object",
+    "descriptions": [
+      "Options. An object representing any additional query string parameters appended to the redirect URL."
+    ],
+    "title": "options",
+    "parentId": "api.redirect.sendUserTo",
+    "globalName": "ApiRedirectSendUserToOptions"
+  },
+  "api.redirect.sendUserTo.options.query": {
+    "id": "api.redirect.sendUserTo.options.query",
+    "type": "object",
+    "descriptions": [
+      "Options. Additional query string parameters to append to the redirect URL."
+    ],
+    "title": "ApiRedirectSendUserToOptionsQuery",
+    "parentId": "api.redirect.sendUserTo.options",
+    "globalName": "ApiRedirectSendUserToOptionsQuery"
+  },
+  "api.redirect.validateToken": {
+    "id": "api.redirect.validateToken",
+    "type": "function",
+    "paramNames": [
+      "options"
+    ],
+    "descriptions": [
+      "Retrieve the data encoded in a JWT token passed to the\n      /continue endpoint while simultaneously verifying the authenticity and integrity of that data.",
+      "Returns payload of the JWT token."
+    ],
+    "title": "validateToken",
+    "parentId": "api.redirect",
+    "globalName": "ApiRedirectValidateToken",
+    "returnDescription": "Returns payload of the JWT token.",
+    "returnEntityType": "unknown"
+  },
+  "api.redirect.validateToken.options": {
+    "id": "api.redirect.validateToken.options",
+    "type": "object",
+    "descriptions": [
+      "Options. Options for retrieving the data encoded in a JWT\n              token passed to the /continue endpoint following a\n              redirect."
+    ],
+    "title": "options",
+    "parentId": "api.redirect.validateToken",
+    "globalName": "ApiRedirectValidateTokenOptions"
+  },
+  "api.redirect.validateToken.options.secret": {
+    "id": "api.redirect.validateToken.options.secret",
+    "type": "string",
+    "descriptions": [
+      "String. Secret used to encode the token."
+    ],
+    "title": "ApiRedirectValidateTokenOptionsSecret",
+    "parentId": "api.redirect.validateToken.options",
+    "globalName": "ApiRedirectValidateTokenOptionsSecret"
+  },
+  "api.redirect.validateToken.options.tokenParameterName": {
+    "id": "api.redirect.validateToken.options.tokenParameterName",
+    "type": "string",
+    "descriptions": [
+      "String. The name of the query or body parameter that was\n              sent to the /continue endpoint. Defaults to\n              session_token."
+    ],
+    "title": "ApiRedirectValidateTokenOptionsTokenParameterName",
+    "parentId": "api.redirect.validateToken.options",
+    "globalName": "ApiRedirectValidateTokenOptionsTokenParameterName"
+  },
+  "api.transaction": {
+    "id": "api.transaction",
+    "type": "object",
+    "descriptions": [
+      "",
+      ""
+    ],
+    "title": "ApiTransaction",
+    "parentId": "api",
+    "globalName": "ApiTransaction"
+  },
+  "api.transaction.setResultUrl": {
+    "id": "api.transaction.setResultUrl",
+    "type": "function",
+    "paramNames": [
+      "url",
+      "options"
+    ],
+    "descriptions": [
+      "Trigger a browser redirect to the target url after the user resets their password."
+    ],
+    "title": "setResultUrl",
+    "parentId": "api.transaction",
+    "globalName": "ApiTransactionSetResultUrl",
+    "returnDescription": "Trigger a browser redirect to the target url after the user resets their password.",
+    "returnEntityType": "unknown"
+  },
+  "api.transaction.setResultUrl.url": {
+    "id": "api.transaction.setResultUrl.url",
+    "type": "string",
+    "descriptions": [
+      "String. The URL a user is directed to after updating their password. Ensure this URL is validated and safe for end users."
+    ],
+    "title": "url",
+    "parentId": "api.transaction.setResultUrl",
+    "globalName": "ApiTransactionSetResultUrlUrl"
+  },
+  "api.transaction.setResultUrl.options": {
+    "id": "api.transaction.setResultUrl.options",
+    "type": "object",
+    "descriptions": [
+      "Options. An object representing any additional query string parameters appended to the target URL."
+    ],
+    "title": "options",
+    "parentId": "api.transaction.setResultUrl",
+    "globalName": "ApiTransactionSetResultUrlOptions"
+  },
+  "api.transaction.setResultUrl.options.query": {
+    "id": "api.transaction.setResultUrl.options.query",
+    "type": "object",
+    "descriptions": [
+      "Options. Additional query string parameters to append to the target URL."
+    ],
+    "title": "ApiTransactionSetResultUrlOptionsQuery",
+    "parentId": "api.transaction.setResultUrl.options",
+    "globalName": "ApiTransactionSetResultUrlOptionsQuery"
+  }
+}

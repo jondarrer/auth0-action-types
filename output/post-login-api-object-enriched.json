@@ -1,0 +1,1714 @@
+{
+  "api.access": {
+    "id": "api.access",
+    "type": "object",
+    "descriptions": [
+      "Modify the user's login access, such as by rejecting the login attempt."
+    ],
+    "title": "ApiAccess",
+    "parentId": "api",
+    "globalName": "ApiAccess"
+  },
+  "api.access.deny": {
+    "id": "api.access.deny",
+    "type": "function",
+    "paramNames": [
+      "reason"
+    ],
+    "descriptions": [
+      "Mark the current login attempt as denied. This will prevent the end-user\n      from completing the login flow. This will NOT cancel other\n      user-related side effects (such as metadata changes) requested by this\n      Action. The login flow will immediately stop following the completion of \n      this action and no further Actions will be executed.",
+      "Returns a reference to the api object."
+    ],
+    "title": "deny",
+    "parentId": "api.access",
+    "globalName": "ApiAccessDeny",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.access.deny.reason": {
+    "id": "api.access.deny.reason",
+    "type": "string",
+    "descriptions": [
+      "String. A human-readable explanation for rejecting the\n              login. This is sent as error_description to the application that initiated the request."
+    ],
+    "title": "reason",
+    "parentId": "api.access.deny",
+    "globalName": "ApiAccessDenyReason"
+  },
+  "api.accessToken": {
+    "id": "api.accessToken",
+    "type": "object",
+    "descriptions": [
+      "Request changes to the access token being issued."
+    ],
+    "title": "ApiAccessToken",
+    "parentId": "api",
+    "globalName": "ApiAccessToken"
+  },
+  "api.accessToken.setCustomClaim": {
+    "id": "api.accessToken.setCustomClaim",
+    "type": "function",
+    "paramNames": [
+      "name",
+      "value"
+    ],
+    "descriptions": [
+      "Set a custom claim on the Access Token that will be issued upon completion\n      of the login flow.",
+      "Returns a reference to the api object."
+    ],
+    "title": "setCustomClaim",
+    "parentId": "api.accessToken",
+    "globalName": "ApiAccessTokenSetCustomClaim",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.accessToken.setCustomClaim.name": {
+    "id": "api.accessToken.setCustomClaim.name",
+    "type": "string",
+    "descriptions": [
+      "String. Name of the claim (note that this may need to be a\n              fully-qualified URL)."
+    ],
+    "title": "name",
+    "parentId": "api.accessToken.setCustomClaim",
+    "globalName": "ApiAccessTokenSetCustomClaimName"
+  },
+  "api.accessToken.setCustomClaim.value": {
+    "id": "api.accessToken.setCustomClaim.value",
+    "type": "any",
+    "descriptions": [
+      "Any value. The value of the claim."
+    ],
+    "title": "value",
+    "parentId": "api.accessToken.setCustomClaim",
+    "globalName": "ApiAccessTokenSetCustomClaimValue"
+  },
+  "api.accessToken.addScope": {
+    "id": "api.accessToken.addScope",
+    "type": "function",
+    "paramNames": [
+      "scope"
+    ],
+    "descriptions": [
+      "Add a scope on the Access Token that will be issued upon completion of the login flow.",
+      "Returns a reference to the api object."
+    ],
+    "title": "addScope",
+    "parentId": "api.accessToken",
+    "globalName": "ApiAccessTokenAddScope",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.accessToken.addScope.scope": {
+    "id": "api.accessToken.addScope.scope",
+    "type": "string",
+    "descriptions": [
+      "String The scope to be added."
+    ],
+    "title": "scope",
+    "parentId": "api.accessToken.addScope",
+    "globalName": "ApiAccessTokenAddScopeScope"
+  },
+  "api.accessToken.removeScope": {
+    "id": "api.accessToken.removeScope",
+    "type": "function",
+    "paramNames": [
+      "scope"
+    ],
+    "descriptions": [
+      "Remove a scope on the Access Token that will be issued upon completion of the login flow.",
+      "Returns a reference to the api object."
+    ],
+    "title": "removeScope",
+    "parentId": "api.accessToken",
+    "globalName": "ApiAccessTokenRemoveScope",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.accessToken.removeScope.scope": {
+    "id": "api.accessToken.removeScope.scope",
+    "type": "string",
+    "descriptions": [
+      "String The scope to be removed."
+    ],
+    "title": "scope",
+    "parentId": "api.accessToken.removeScope",
+    "globalName": "ApiAccessTokenRemoveScopeScope"
+  },
+  "api.authentication": {
+    "id": "api.authentication",
+    "type": "object",
+    "descriptions": [
+      "Request changes to the authentication state of the current user's session."
+    ],
+    "title": "ApiAuthentication",
+    "parentId": "api",
+    "globalName": "ApiAuthentication"
+  },
+  "api.authentication.recordMethod": {
+    "id": "api.authentication.recordMethod",
+    "type": "function",
+    "paramNames": [
+      "provider_url"
+    ],
+    "descriptions": [
+      "Indicate that a custom authentication method has been completed in the\n      current session. This method will then be available in the\n      `event.authentication.methods` array in subsequent logins.",
+      "Important: This API is only available from within the\n      onContinuePostLogin function for\n      PostLogin Actions. In other words, this may be used to record\n      the completion of a custom authentication method after redirecting the user\n      via  api.redirect.sendUserTo().",
+      "Returns a reference to the api object."
+    ],
+    "title": "recordMethod",
+    "parentId": "api.authentication",
+    "globalName": "ApiAuthenticationRecordMethod",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.authentication.recordMethod.provider_url": {
+    "id": "api.authentication.recordMethod.provider_url",
+    "type": "string",
+    "descriptions": [
+      "String. A url representing the identity of the custom\n              authenticated method that was completed."
+    ],
+    "title": "provider_url",
+    "parentId": "api.authentication.recordMethod",
+    "globalName": "ApiAuthenticationRecordMethodProvider_url"
+  },
+  "api.authentication.challengeWith": {
+    "id": "api.authentication.challengeWith",
+    "type": "function",
+    "paramNames": [
+      "factor",
+      "options"
+    ],
+    "descriptions": [
+      "Challenge the user with one or more specified multifactor authentication factors. This method presents the default challenge first, then allows the user to select a different option if additional factors have been supplied. If the user has not enrolled in any of the factors supplied (including both the default and any additional factors), the command fails.",
+      "Note: This method overrides existing policies and rules that enable or disable MFA in a tenant."
+    ],
+    "title": "challengeWith",
+    "parentId": "api.authentication",
+    "globalName": "ApiAuthenticationChallengeWith",
+    "returnDescription": "Note: This method overrides existing policies and rules that enable or disable MFA in a tenant.",
+    "returnEntityType": "unknown"
+  },
+  "api.authentication.challengeWith.factor": {
+    "id": "api.authentication.challengeWith.factor",
+    "type": "object",
+    "descriptions": [
+      "Object. An object containing the type field. type is a string used to specify the default MFA factor or factors used to challenge the user.",
+      "Supported values include:",
+      "otp\n              recovery-code\n              email\n              push-notification\n                  \n                      otpFallbackWhen set to false, the user cannot use the OTP fallback option of the push notification factor. \n                  \n              phone\n                  \n                      preferredMethod: voice\n                      preferredMethod: sms\n                      preferredMethod: both\n              \n              webauthn-platform\n              webauthn-roaming",
+      "Example",
+      "",
+      "api.authentication.challengeWith({ \n    type: 'phone', \n    options: { preferredMethod: 'both'} \n  });Was this helpful?Yes /No",
+      ""
+    ],
+    "title": "factor",
+    "parentId": "api.authentication.challengeWith",
+    "globalName": "ApiAuthenticationChallengeWithFactor"
+  },
+  "api.authentication.challengeWith.options": {
+    "id": "api.authentication.challengeWith.options",
+    "type": "unknown",
+    "descriptions": [
+      "Optional object. An object containing the optional additionalFactors field.",
+      "additionalFactors is an array used to specify other factors a user can choose from when completing the MFA challenge. Supports the same values as the type field.",
+      "Example",
+      "",
+      "api.authentication.challengeWith({\n    type: 'otp'\n  }, {\n    additionalFactors: [{\n      type: 'push-notification'\n    }, {\n      type: 'phone'\n    }]\n  })Was this helpful?Yes /No",
+      ""
+    ],
+    "title": "options",
+    "parentId": "api.authentication.challengeWith",
+    "globalName": "ApiAuthenticationChallengeWithOptions"
+  },
+  "api.authentication.challengeWithAny": {
+    "id": "api.authentication.challengeWithAny",
+    "type": "function",
+    "paramNames": [
+      "factors"
+    ],
+    "descriptions": [
+      "Trigger an MFA challenge and allow the user to select their preferred factor from the supplied list. This method presents a factor picker to the user rather than a specific challenge, in accordance with the following conditions:",
+      "",
+      "",
+      "Note: This method overrides existing policies and rules that enable or disable MFA in a tenant."
+    ],
+    "title": "challengeWithAny",
+    "parentId": "api.authentication",
+    "globalName": "ApiAuthenticationChallengeWithAny",
+    "returnDescription": "Note: This method overrides existing policies and rules that enable or disable MFA in a tenant.",
+    "returnEntityType": "unknown"
+  },
+  "api.authentication.challengeWithAny.factors": {
+    "id": "api.authentication.challengeWithAny.factors",
+    "type": "unknown[]",
+    "descriptions": [
+      "Array. An array of objects that includes the  type field.  type is a string used to specify an MFA factor the user can choose from when challenged.",
+      "Supported values include:",
+      "otp\n              recovery-code\n              email\n              push-notification\n                  \n                      otpFallbackWhen set to false, the user cannot use the OTP fallback option of the push notification factor. \n                  \n              phone\n                  \n                      preferredMethod: voice\n                      preferredMethod: sms\n                      preferredMethod: both\n                  \n              webauthn-platform\n              webauthn-roaming"
+    ],
+    "title": "factors",
+    "parentId": "api.authentication.challengeWithAny",
+    "globalName": "ApiAuthenticationChallengeWithAnyFactors"
+  },
+  "api.authentication.enrollWith": {
+    "id": "api.authentication.enrollWith",
+    "type": "function",
+    "paramNames": [
+      "factor",
+      "options"
+    ],
+    "descriptions": [
+      "Prompt the user to enroll with a specific MFA factor. This method prompts the user to enroll with a default factor, but can optionally allow the user to select a different option if additional factors have been supplied. If the user has already enrolled in all of the supplied factors (including both the default value and any additional factors), the command fails.",
+      "Note: This method overrides existing policies and rules that enable or disable MFA in a tenant."
+    ],
+    "title": "enrollWith",
+    "parentId": "api.authentication",
+    "globalName": "ApiAuthenticationEnrollWith",
+    "returnDescription": "Note: This method overrides existing policies and rules that enable or disable MFA in a tenant.",
+    "returnEntityType": "unknown"
+  },
+  "api.authentication.enrollWith.factor": {
+    "id": "api.authentication.enrollWith.factor",
+    "type": "object",
+    "descriptions": [
+      "Object. An object containing the type field. type is a string used to specify the default MFA factor the user is prompted to enroll.",
+      "Supported values include:",
+      "otp\n              recovery-code\n              push-notification\n              phone\n                 \n                   preferredMethod: voice\n                   preferredMethod: sms\n                   preferredMethod: both\n                 \n              webauthn-platform\n              webauthn-roaming"
+    ],
+    "title": "factor",
+    "parentId": "api.authentication.enrollWith",
+    "globalName": "ApiAuthenticationEnrollWithFactor"
+  },
+  "api.authentication.enrollWith.options": {
+    "id": "api.authentication.enrollWith.options",
+    "type": "unknown",
+    "descriptions": [
+      "Optional object. An object containing the optional additionalFactors field.",
+      "additionalFactors is an array used to specify other factors a user can choose from during enrollment. Supports the same values as the type field.",
+      "Example",
+      "",
+      "api.authentication.enrollWith({\n    type: 'otp'\n  }, {\n    additionalFactors: [{\n      type: 'push-notification'\n    }, {\n      type: 'phone'\n    }]\n  })Was this helpful?Yes /No",
+      "",
+      "",
+      "Example",
+      "",
+      "api.authentication.enrollWith({\n    type: 'otp'\n  }, {\n    additionalFactors: [{\n      type: 'push-notification'\n    }, {\n      type: 'phone'\n    }]\n  })Was this helpful?Yes /No",
+      ""
+    ],
+    "title": "options",
+    "parentId": "api.authentication.enrollWith",
+    "globalName": "ApiAuthenticationEnrollWithOptions"
+  },
+  "api.authentication.enrollWithAny": {
+    "id": "api.authentication.enrollWithAny",
+    "type": "function",
+    "paramNames": [
+      "factors"
+    ],
+    "descriptions": [
+      "Prompt the user to select an MFA factor to enroll in from the supplied list. This method presents a factor picker to the user rather than a default factor prompt, in accordance with the following conditions:",
+      "",
+      "",
+      "Note: This method overrides existing policies and rules that enable or disable MFA in a tenant."
+    ],
+    "title": "enrollWithAny",
+    "parentId": "api.authentication",
+    "globalName": "ApiAuthenticationEnrollWithAny",
+    "returnDescription": "Note: This method overrides existing policies and rules that enable or disable MFA in a tenant.",
+    "returnEntityType": "unknown"
+  },
+  "api.authentication.enrollWithAny.factors": {
+    "id": "api.authentication.enrollWithAny.factors",
+    "type": "unknown[]",
+    "descriptions": [
+      "Array. An array of objects that includes the  type field.  type is a string used to specify the default MFA factor the user is prompted to enroll.",
+      "Supported values include:",
+      "otp\n              recovery-code\n              push-notification\n              phone\n                   \n                      preferredMethod: voice\n                      preferredMethod: sms\n                      preferredMethod: both\n                  \n              webauthn-platform\n              webauthn-roaming"
+    ],
+    "title": "factors",
+    "parentId": "api.authentication.enrollWithAny",
+    "globalName": "ApiAuthenticationEnrollWithAnyFactors"
+  },
+  "api.authentication.setPrimaryUser": {
+    "id": "api.authentication.setPrimaryUser",
+    "type": "function",
+    "paramNames": [
+      "primary_user_id"
+    ],
+    "descriptions": [
+      "Change the primary user for the login transaction.",
+      "In scenarios that require linking users, the user identity used to initiate the login may no longer exist as a discrete user. That identity may now be a secondary identity of an existing user. In such situations, the setPrimaryUser() function can be used to indicate that the subject of the login should be changed.",
+      "Important:",
+      "",
+      ""
+    ],
+    "title": "setPrimaryUser",
+    "parentId": "api.authentication",
+    "globalName": "ApiAuthenticationSetPrimaryUser",
+    "returnDescription": "",
+    "returnEntityType": "unknown"
+  },
+  "api.authentication.setPrimaryUser.primary_user_id": {
+    "id": "api.authentication.setPrimaryUser.primary_user_id",
+    "type": "string",
+    "descriptions": [
+      "String. The user ID of the user for whom tokens should be issued (the sub claim)."
+    ],
+    "title": "primary_user_id",
+    "parentId": "api.authentication.setPrimaryUser",
+    "globalName": "ApiAuthenticationSetPrimaryUserPrimary_user_id"
+  },
+  "api.cache": {
+    "id": "api.cache",
+    "type": "object",
+    "descriptions": [
+      "Store and retrieve data that persists across executions."
+    ],
+    "title": "ApiCache",
+    "parentId": "api",
+    "globalName": "ApiCache"
+  },
+  "api.cache.delete": {
+    "id": "api.cache.delete",
+    "type": "function",
+    "paramNames": [
+      "key"
+    ],
+    "descriptions": [
+      "Delete a record describing a cached value at the supplied key if it exists.",
+      "Returns a CacheWriteResult object with  type: \"success\" if a value was removed from the cache. A failed operation returns type: \"error\". For errors, the returned object will have a\n      code property that indicates the nature of the failure."
+    ],
+    "title": "delete",
+    "parentId": "api.cache",
+    "globalName": "ApiCacheDelete",
+    "returnDescription": "Returns a CacheWriteResult object with  type: \"success\" if a value was removed from the cache. A failed operation returns type: \"error\". For errors, the returned object will have a\n      code property that indicates the nature of the failure.",
+    "returnEntityType": "CacheWriteResult"
+  },
+  "api.cache.delete.key": {
+    "id": "api.cache.delete.key",
+    "type": "string",
+    "descriptions": [
+      "String. The key of the record stored in the cache."
+    ],
+    "title": "key",
+    "parentId": "api.cache.delete",
+    "globalName": "ApiCacheDeleteKey"
+  },
+  "api.cache.get": {
+    "id": "api.cache.get",
+    "type": "function",
+    "paramNames": [
+      "key"
+    ],
+    "descriptions": [
+      "Retrieve a record describing a cached value at the supplied\n      key, if it exists. If a record is found, the cached value can\n      be found at the value property of the returned object.",
+      "Returns a cache record if an item is found in the cache for the supplied\n      key. Cache records are objects with a\n      value property holding the cached value as well as an\n      expires_at property indicating the maximum expiry of\n      the record in milliseconds since the Unix epoch.",
+      "Important:\n      This cache is designed for short-lived, ephemeral data. Items may not be\n      available in later transactions even if they are within their supplied their\n      lifetime."
+    ],
+    "title": "get",
+    "parentId": "api.cache",
+    "globalName": "ApiCacheGet",
+    "returnDescription": "Important:\n      This cache is designed for short-lived, ephemeral data. Items may not be\n      available in later transactions even if they are within their supplied their\n      lifetime.",
+    "returnEntityType": "unknown"
+  },
+  "api.cache.get.key": {
+    "id": "api.cache.get.key",
+    "type": "string",
+    "descriptions": [
+      "String. The key of the record stored in the cache."
+    ],
+    "title": "key",
+    "parentId": "api.cache.get",
+    "globalName": "ApiCacheGetKey"
+  },
+  "api.cache.set": {
+    "id": "api.cache.set",
+    "type": "function",
+    "paramNames": [
+      "key",
+      "value",
+      "[options]"
+    ],
+    "descriptions": [
+      "Store or update a string value in the cache at the specified key.",
+      "Values stored in this cache are scoped to the Trigger in which they are set.\n      They are subject to the\n      Actions Cache Limits.",
+      "Values stored in this way will have lifetimes of up to the specified\n      ttl or expires_at values. If no lifetime is\n      specified, a default lifetime of 15 minutes will be used. Lifetimes may\n      not exceed the maximum duration listed at\n      Actions Cache Limits.",
+      "Returns CacheWriteSuccess if the values are stored successfully. Otherwise, you will receive CacheWriteError.",
+      ""
+    ],
+    "title": "set",
+    "parentId": "api.cache",
+    "globalName": "ApiCacheSet",
+    "returnDescription": "",
+    "returnEntityType": "unknown"
+  },
+  "api.cache.set.key": {
+    "id": "api.cache.set.key",
+    "type": "string",
+    "descriptions": [
+      "String. The key of the record stored in the cache."
+    ],
+    "title": "key",
+    "parentId": "api.cache.set",
+    "globalName": "ApiCacheSetKey"
+  },
+  "api.cache.set.value": {
+    "id": "api.cache.set.value",
+    "type": "string",
+    "descriptions": [
+      "String. The value of the record to be stored."
+    ],
+    "title": "value",
+    "parentId": "api.cache.set",
+    "globalName": "ApiCacheSetValue"
+  },
+  "api.cache.set.options": {
+    "id": "api.cache.set.options",
+    "type": "object",
+    "descriptions": [
+      "Optional object. Options for adjusting cache behavior."
+    ],
+    "title": "options",
+    "parentId": "api.cache.set",
+    "globalName": "ApiCacheSetOptions"
+  },
+  "api.cache.set.options.expires_at": {
+    "id": "api.cache.set.options.expires_at",
+    "type": "unknown",
+    "descriptions": [
+      "Optional number. The absolute expiry time in milliseconds\n              since the unix epoch. While cached records may be evicted earlier,\n              they will never remain beyond the the supplied\n              expires_at.",
+      "Note: This value should not be supplied if a value was also\n              provided for ttl. If both options are supplied, the\n              earlier expiry of the two will be used."
+    ],
+    "title": "ApiCacheSetOptionsExpires_at",
+    "parentId": "api.cache.set.options",
+    "globalName": "ApiCacheSetOptionsExpires_at"
+  },
+  "api.cache.set.options.ttl": {
+    "id": "api.cache.set.options.ttl",
+    "type": "unknown",
+    "descriptions": [
+      "Optional number. The time-to-live value of this cache entry\n              in milliseconds. While cached values may be evicted earlier, they\n              will never remain beyond the the supplied ttl.",
+      "Note: This value should not be supplied if a value was also\n              provided for expires_at. If both options are supplied,\n              the earlier expiry of the two will be used."
+    ],
+    "title": "ApiCacheSetOptionsTtl",
+    "parentId": "api.cache.set.options",
+    "globalName": "ApiCacheSetOptionsTtl"
+  },
+  "api.idToken": {
+    "id": "api.idToken",
+    "type": "object",
+    "descriptions": [
+      "Request changes to the ID token being issued."
+    ],
+    "title": "ApiIdToken",
+    "parentId": "api",
+    "globalName": "ApiIdToken"
+  },
+  "api.idToken.setCustomClaim": {
+    "id": "api.idToken.setCustomClaim",
+    "type": "function",
+    "paramNames": [
+      "name",
+      "value"
+    ],
+    "descriptions": [
+      "Set a custom claim on the ID token that will be issued upon completion of\n      the login flow.",
+      "Returns a reference to the api object."
+    ],
+    "title": "setCustomClaim",
+    "parentId": "api.idToken",
+    "globalName": "ApiIdTokenSetCustomClaim",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.idToken.setCustomClaim.name": {
+    "id": "api.idToken.setCustomClaim.name",
+    "type": "string",
+    "descriptions": [
+      "String. Name of the claim (note that this may need to be a\n              fully-qualified URL)."
+    ],
+    "title": "name",
+    "parentId": "api.idToken.setCustomClaim",
+    "globalName": "ApiIdTokenSetCustomClaimName"
+  },
+  "api.idToken.setCustomClaim.value": {
+    "id": "api.idToken.setCustomClaim.value",
+    "type": "any",
+    "descriptions": [
+      "Any value. The value of the claim."
+    ],
+    "title": "value",
+    "parentId": "api.idToken.setCustomClaim",
+    "globalName": "ApiIdTokenSetCustomClaimValue"
+  },
+  "api.multifactor": {
+    "id": "api.multifactor",
+    "type": "object",
+    "descriptions": [
+      "Set the requirement for multifactor authentication on the login attempt."
+    ],
+    "title": "ApiMultifactor",
+    "parentId": "api",
+    "globalName": "ApiMultifactor"
+  },
+  "api.multifactor.enable": {
+    "id": "api.multifactor.enable",
+    "type": "function",
+    "paramNames": [
+      "provider",
+      "options"
+    ],
+    "descriptions": [
+      "Enable multifactor authentication for this login flow. When enabled, users\n      must complete the configured multifactor challenge. The actual multifactor\n      challenge will be deferred to the end of the login flow.",
+      "Returns a reference to the api object."
+    ],
+    "title": "enable",
+    "parentId": "api.multifactor",
+    "globalName": "ApiMultifactorEnable",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.multifactor.enable.provider": {
+    "id": "api.multifactor.enable.provider",
+    "type": "string",
+    "descriptions": [
+      "String. The name of the multifactor provider to use or the\n              value any to use any of the configured providers.",
+      "Supported values include:",
+      "any Use any of the configured challenges.\n              duo Use the Duo multifactor provider.\n              \n                google-authenticator Use the Google Authenticator\n                provider.\n              \n              guardian Use the Guardian provider.\n              none Use none of the configured challenges to prevent the MFA flow from triggering."
+    ],
+    "title": "provider",
+    "parentId": "api.multifactor.enable",
+    "globalName": "ApiMultifactorEnableProvider"
+  },
+  "api.multifactor.enable.options": {
+    "id": "api.multifactor.enable.options",
+    "type": "unknown",
+    "descriptions": [
+      "Optional object. Additional options for enabling\n              multifactor challenges."
+    ],
+    "title": "options",
+    "parentId": "api.multifactor.enable",
+    "globalName": "ApiMultifactorEnableOptions"
+  },
+  "api.multifactor.enable.options.allowRememberBrowser": {
+    "id": "api.multifactor.enable.options.allowRememberBrowser",
+    "type": "unknown",
+    "descriptions": [
+      "Optional boolean. When provider is set to google-authenticator or duo, the user is prompted for MFA once every 30 days. When provider is set to guardian, the MFA prompt displays the enrollment checkbox for users to choose whether or not to enroll. Defaults to false. To learn more, read Customize Multi-Factor Authentication Pages"
+    ],
+    "title": "ApiMultifactorEnableOptionsAllowRememberBrowser",
+    "parentId": "api.multifactor.enable.options",
+    "globalName": "ApiMultifactorEnableOptionsAllowRememberBrowser"
+  },
+  "api.multifactor.enable.options.providerOptions": {
+    "id": "api.multifactor.enable.options.providerOptions",
+    "type": "unknown",
+    "descriptions": [
+      "Optional object. Additional options to configure the\n              challenge, only available for the duo provider.",
+      "Supported options include:",
+      "host String. This is the API hostname value\n                from your Duo account.\n              \n              \n                ikey String. This is the Client ID\n                (previously Integration key) value from your Duo account.\n              \n              \n                skey String. This is the Client secret\n                (previously Secret key) value from your Duo account.\n              \n              \n                username Optional string. Use some attribute\n                of the profile as the username in DuoSecurity. This is also useful\n                if you already have your users enrolled in Duo."
+    ],
+    "title": "ApiMultifactorEnableOptionsProviderOptions",
+    "parentId": "api.multifactor.enable.options",
+    "globalName": "ApiMultifactorEnableOptionsProviderOptions"
+  },
+  "api.user": {
+    "id": "api.user",
+    "type": "object",
+    "descriptions": [
+      "Make application-specific changes to the metadata of the user that is\n      logging in.",
+      "NOTE: Invoking these methods does not update the metadata immediately. You\n          can call them several times throughout multiple Actions of the same flow,\n          and the engine will aggregate the changes and update the metadata at\n          once before the flow is completed."
+    ],
+    "title": "ApiUser",
+    "parentId": "api",
+    "globalName": "ApiUser"
+  },
+  "api.user.setAppMetadata": {
+    "id": "api.user.setAppMetadata",
+    "type": "function",
+    "paramNames": [
+      "name",
+      "value"
+    ],
+    "descriptions": [
+      "Set application metadata for the user that is logging in. Data stored within\n      app_metadata is not editable by the user.   Note: This trigger makes a call to the Management API, consuming the Management API rate limit. If this request hits the rate limit and fails to retry within the timeout window, you will receive a Deadline Exceeded error.",
+      "",
+      "Returns a reference to the api object."
+    ],
+    "title": "setAppMetadata",
+    "parentId": "api.user",
+    "globalName": "ApiUserSetAppMetadata",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.user.setAppMetadata.name": {
+    "id": "api.user.setAppMetadata.name",
+    "type": "string",
+    "descriptions": [
+      "String. The name of metadata property."
+    ],
+    "title": "name",
+    "parentId": "api.user.setAppMetadata",
+    "globalName": "ApiUserSetAppMetadataName"
+  },
+  "api.user.setAppMetadata.value": {
+    "id": "api.user.setAppMetadata.value",
+    "type": "any",
+    "descriptions": [
+      "Any value. The value of the metadata property. This may be\n              set to null to remove the metadata property."
+    ],
+    "title": "value",
+    "parentId": "api.user.setAppMetadata",
+    "globalName": "ApiUserSetAppMetadataValue"
+  },
+  "api.user.setUserMetadata": {
+    "id": "api.user.setUserMetadata",
+    "type": "function",
+    "paramNames": [
+      "name",
+      "value"
+    ],
+    "descriptions": [
+      "Set general metadata for the user that is logging in.  Note: This trigger makes a call to the Management API, consuming the Management API rate limit. If this request hits the rate limit and fails to retry within the timeout window, you will receive a Deadline Exceeded error.",
+      "Returns a reference to the api object."
+    ],
+    "title": "setUserMetadata",
+    "parentId": "api.user",
+    "globalName": "ApiUserSetUserMetadata",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.user.setUserMetadata.name": {
+    "id": "api.user.setUserMetadata.name",
+    "type": "string",
+    "descriptions": [
+      "String. The name of metadata property."
+    ],
+    "title": "name",
+    "parentId": "api.user.setUserMetadata",
+    "globalName": "ApiUserSetUserMetadataName"
+  },
+  "api.user.setUserMetadata.value": {
+    "id": "api.user.setUserMetadata.value",
+    "type": "any",
+    "descriptions": [
+      "Any value. The value of the metadata property. This may be\n              set to null to remove the metadata property."
+    ],
+    "title": "value",
+    "parentId": "api.user.setUserMetadata",
+    "globalName": "ApiUserSetUserMetadataValue"
+  },
+  "api.redirect": {
+    "id": "api.redirect",
+    "type": "object",
+    "descriptions": [],
+    "title": "ApiRedirect",
+    "parentId": "api",
+    "globalName": "ApiRedirect"
+  },
+  "api.redirect.encodeToken": {
+    "id": "api.redirect.encodeToken",
+    "type": "function",
+    "paramNames": [
+      "options"
+    ],
+    "descriptions": [
+      "Create a session token suitable for using as a query string parameter\n        redirect target (via sendUserTo) that contains data whose\n        authenticity must be provable by the target endpoint. The target endpoint\n        can verify the authenticity and integrity of the data by checking the\n        JWT's signature using a shared secret.",
+      "Returns a JWT string."
+    ],
+    "title": "encodeToken",
+    "parentId": "api.redirect",
+    "globalName": "ApiRedirectEncodeToken",
+    "returnDescription": "Returns a JWT string.",
+    "returnEntityType": "JwtString"
+  },
+  "api.redirect.encodeToken.options": {
+    "id": "api.redirect.encodeToken.options",
+    "type": "object",
+    "descriptions": [
+      "Options. Configure how sensitive data is encoded into the\n                query parameters of the resulting url."
+    ],
+    "title": "options",
+    "parentId": "api.redirect.encodeToken",
+    "globalName": "ApiRedirectEncodeTokenOptions"
+  },
+  "api.redirect.encodeToken.options.expiresInSeconds": {
+    "id": "api.redirect.encodeToken.options.expiresInSeconds",
+    "type": "number",
+    "descriptions": [
+      "Number. Number of seconds before this token will expire\n                (defaults to 900)."
+    ],
+    "title": "ApiRedirectEncodeTokenOptionsExpiresInSeconds",
+    "parentId": "api.redirect.encodeToken.options",
+    "globalName": "ApiRedirectEncodeTokenOptionsExpiresInSeconds"
+  },
+  "api.redirect.encodeToken.options.payload": {
+    "id": "api.redirect.encodeToken.options.payload",
+    "type": "object",
+    "descriptions": [
+      "Options. The data intended to be passed to the target of\n                the redirect and whose authenticity and integrity must be\n                provable."
+    ],
+    "title": "ApiRedirectEncodeTokenOptionsPayload",
+    "parentId": "api.redirect.encodeToken.options",
+    "globalName": "ApiRedirectEncodeTokenOptionsPayload"
+  },
+  "api.redirect.encodeToken.options.secret": {
+    "id": "api.redirect.encodeToken.options.secret",
+    "type": "string",
+    "descriptions": [
+      "String. A secret that will be used to sign a JWT that is\n                shared with the redirect target. The secret value should be stored\n                as a secret and retrieved using\n                event.secrets['SECRET_NAME']."
+    ],
+    "title": "ApiRedirectEncodeTokenOptionsSecret",
+    "parentId": "api.redirect.encodeToken.options",
+    "globalName": "ApiRedirectEncodeTokenOptionsSecret"
+  },
+  "api.redirect.sendUserTo": {
+    "id": "api.redirect.sendUserTo",
+    "type": "function",
+    "paramNames": [
+      "url",
+      "options"
+    ],
+    "descriptions": [
+      "Trigger a browser redirect to the target `url` immediately after this\n        action completes.",
+      "Returns a reference to the api object."
+    ],
+    "title": "sendUserTo",
+    "parentId": "api.redirect",
+    "globalName": "ApiRedirectSendUserTo",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.redirect.sendUserTo.url": {
+    "id": "api.redirect.sendUserTo.url",
+    "type": "string",
+    "descriptions": [
+      "String. The url in which to redirect the user."
+    ],
+    "title": "url",
+    "parentId": "api.redirect.sendUserTo",
+    "globalName": "ApiRedirectSendUserToUrl"
+  },
+  "api.redirect.sendUserTo.options": {
+    "id": "api.redirect.sendUserTo.options",
+    "type": "object",
+    "descriptions": [
+      "Options. An object representing additional query string\n                parameters that should be appended to the redirect URL."
+    ],
+    "title": "options",
+    "parentId": "api.redirect.sendUserTo",
+    "globalName": "ApiRedirectSendUserToOptions"
+  },
+  "api.redirect.sendUserTo.options.query": {
+    "id": "api.redirect.sendUserTo.options.query",
+    "type": "object",
+    "descriptions": [
+      "Options. Additional query string parameters that should\n                be appended to the redirect URL."
+    ],
+    "title": "ApiRedirectSendUserToOptionsQuery",
+    "parentId": "api.redirect.sendUserTo.options",
+    "globalName": "ApiRedirectSendUserToOptionsQuery"
+  },
+  "api.redirect.validateToken": {
+    "id": "api.redirect.validateToken",
+    "type": "function",
+    "paramNames": [
+      "options"
+    ],
+    "descriptions": [
+      "Retrieve the data encoded in a JWT token passed to the\n        /continue endpoint while verifying the authenticity and\n        integrity of that data.",
+      "Returns payload of the JWT token."
+    ],
+    "title": "validateToken",
+    "parentId": "api.redirect",
+    "globalName": "ApiRedirectValidateToken",
+    "returnDescription": "Returns payload of the JWT token.",
+    "returnEntityType": "unknown"
+  },
+  "api.redirect.validateToken.options": {
+    "id": "api.redirect.validateToken.options",
+    "type": "object",
+    "descriptions": [
+      "Options. Options for retrieving the data encoded in a JWT\n                token passed to the /continue endpoint following a\n                redirect."
+    ],
+    "title": "options",
+    "parentId": "api.redirect.validateToken",
+    "globalName": "ApiRedirectValidateTokenOptions"
+  },
+  "api.redirect.validateToken.options.secret": {
+    "id": "api.redirect.validateToken.options.secret",
+    "type": "string",
+    "descriptions": [
+      "String. Secret used to encode the token."
+    ],
+    "title": "ApiRedirectValidateTokenOptionsSecret",
+    "parentId": "api.redirect.validateToken.options",
+    "globalName": "ApiRedirectValidateTokenOptionsSecret"
+  },
+  "api.redirect.validateToken.options.tokenParameterName": {
+    "id": "api.redirect.validateToken.options.tokenParameterName",
+    "type": "string",
+    "descriptions": [
+      "String. The name of the query or body parameter that was\n                sent to the /continue endpoint. (defaults to\n                session_token"
+    ],
+    "title": "ApiRedirectValidateTokenOptionsTokenParameterName",
+    "parentId": "api.redirect.validateToken.options",
+    "globalName": "ApiRedirectValidateTokenOptionsTokenParameterName"
+  },
+  "api.rules": {
+    "id": "api.rules",
+    "type": "object",
+    "descriptions": [
+      "Get information about the Rules that have run during the current transaction."
+    ],
+    "title": "ApiRules",
+    "parentId": "api",
+    "globalName": "ApiRules"
+  },
+  "api.rules.wasExecuted": {
+    "id": "api.rules.wasExecuted",
+    "type": "function",
+    "paramNames": [
+      "ruleId"
+    ],
+    "descriptions": [
+      "Check whether a specific Rule has been executed prior to this Action in the current transaction. This can be used to avoid running logic that has been duplicated from that Rule into this Action during migration to Actions.",
+      "This method returns true when the Rule with the provided ID has been executed in this transaction and false when it has not.."
+    ],
+    "title": "wasExecuted",
+    "parentId": "api.rules",
+    "globalName": "ApiRulesWasExecuted",
+    "returnDescription": "This method returns true when the Rule with the provided ID has been executed in this transaction and false when it has not..",
+    "returnEntityType": "unknown"
+  },
+  "api.rules.wasExecuted.ruleId": {
+    "id": "api.rules.wasExecuted.ruleId",
+    "type": "string",
+    "descriptions": [
+      "String. The Rule ID to check."
+    ],
+    "title": "ruleId",
+    "parentId": "api.rules.wasExecuted",
+    "globalName": "ApiRulesWasExecutedRuleId"
+  },
+  "api.samlResponse": {
+    "id": "api.samlResponse",
+    "type": "object",
+    "descriptions": [
+      "Modify the SAML Response for the user that is logging in."
+    ],
+    "title": "ApiSamlResponse",
+    "parentId": "api",
+    "globalName": "ApiSamlResponse"
+  },
+  "api.samlResponse.setAttribute": {
+    "id": "api.samlResponse.setAttribute",
+    "type": "function",
+    "paramNames": [
+      "attribute",
+      "value"
+    ],
+    "descriptions": [
+      "Set a custom SAML attribute.",
+      "A failed operation throws an Error. For errors, the returned\n    object has a message that indicates the nature of the failure.",
+      "The value must be of type SAMLValue, which can be\n    string | number | boolean | null | Array"
+    ],
+    "title": "setAttribute",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetAttribute",
+    "returnDescription": "The value must be of type SAMLValue, which can be\n    string | number | boolean | null | Array",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setAttribute.attribute": {
+    "id": "api.samlResponse.setAttribute.attribute",
+    "type": "string",
+    "descriptions": [
+      "String. The SAML attribute to be set."
+    ],
+    "title": "attribute",
+    "parentId": "api.samlResponse.setAttribute",
+    "globalName": "ApiSamlResponseSetAttributeAttribute"
+  },
+  "api.samlResponse.setAttribute.value": {
+    "id": "api.samlResponse.setAttribute.value",
+    "type": "unknown",
+    "descriptions": [
+      "SAMLValue. The value of the SAML assertion. This may be set\n            to null to remove the attribute property."
+    ],
+    "title": "value",
+    "parentId": "api.samlResponse.setAttribute",
+    "globalName": "ApiSamlResponseSetAttributeValue"
+  },
+  "api.samlResponse.setAudience": {
+    "id": "api.samlResponse.setAudience",
+    "type": "function",
+    "paramNames": [
+      "audience"
+    ],
+    "descriptions": [
+      "Alter the audience of the SAML Response. Default is the issuer on\n    SAMLRequest."
+    ],
+    "title": "setAudience",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetAudience",
+    "returnDescription": "Alter the audience of the SAML Response. Default is the issuer on\n    SAMLRequest.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setAudience.audience": {
+    "id": "api.samlResponse.setAudience.audience",
+    "type": "string",
+    "descriptions": [
+      "String. The SAML audience to be set."
+    ],
+    "title": "audience",
+    "parentId": "api.samlResponse.setAudience",
+    "globalName": "ApiSamlResponseSetAudienceAudience"
+  },
+  "api.samlResponse.setIssuer": {
+    "id": "api.samlResponse.setIssuer",
+    "type": "function",
+    "paramNames": [
+      "issuer"
+    ],
+    "descriptions": [
+      "Alter the issuer of the SAML Response. Default issuer is urn:TENANT."
+    ],
+    "title": "setIssuer",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetIssuer",
+    "returnDescription": "Alter the issuer of the SAML Response. Default issuer is urn:TENANT.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setIssuer.issuer": {
+    "id": "api.samlResponse.setIssuer.issuer",
+    "type": "string",
+    "descriptions": [
+      "String. The SAML issuer to be set."
+    ],
+    "title": "issuer",
+    "parentId": "api.samlResponse.setIssuer",
+    "globalName": "ApiSamlResponseSetIssuerIssuer"
+  },
+  "api.samlResponse.setEncryptionPublicKey": {
+    "id": "api.samlResponse.setEncryptionPublicKey",
+    "type": "function",
+    "paramNames": [
+      "publicKey"
+    ],
+    "descriptions": [
+      "Optionally specify a public key used to encrypt the SAML assertion. The\n    public key should be obtained from the service provider. Both the public key\n    and certificate must be specified."
+    ],
+    "title": "setEncryptionPublicKey",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetEncryptionPublicKey",
+    "returnDescription": "Optionally specify a public key used to encrypt the SAML assertion. The\n    public key should be obtained from the service provider. Both the public key\n    and certificate must be specified.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setEncryptionPublicKey.publicKey": {
+    "id": "api.samlResponse.setEncryptionPublicKey.publicKey",
+    "type": "string",
+    "descriptions": [
+      "String. The public key to be set."
+    ],
+    "title": "publicKey",
+    "parentId": "api.samlResponse.setEncryptionPublicKey",
+    "globalName": "ApiSamlResponseSetEncryptionPublicKeyPublicKey"
+  },
+  "api.samlResponse.setRecipient": {
+    "id": "api.samlResponse.setRecipient",
+    "type": "function",
+    "paramNames": [
+      "recipient"
+    ],
+    "descriptions": [
+      "Alter the recipient of the SAML assertion (SubjectConfirmationData). Default\n    is AssertionConsumerUrl on SAMLRequest or callback\n    URL if no SAMLRequest was sent."
+    ],
+    "title": "setRecipient",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetRecipient",
+    "returnDescription": "Alter the recipient of the SAML assertion (SubjectConfirmationData). Default\n    is AssertionConsumerUrl on SAMLRequest or callback\n    URL if no SAMLRequest was sent.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setRecipient.recipient": {
+    "id": "api.samlResponse.setRecipient.recipient",
+    "type": "string",
+    "descriptions": [
+      "String. The SAML recipient to be set."
+    ],
+    "title": "recipient",
+    "parentId": "api.samlResponse.setRecipient",
+    "globalName": "ApiSamlResponseSetRecipientRecipient"
+  },
+  "api.samlResponse.setCreateUpnClaim": {
+    "id": "api.samlResponse.setCreateUpnClaim",
+    "type": "function",
+    "paramNames": [
+      "createUpnClaim"
+    ],
+    "descriptions": [
+      "Dictates if a UPN claim should be created. Default is true."
+    ],
+    "title": "setCreateUpnClaim",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetCreateUpnClaim",
+    "returnDescription": "Dictates if a UPN claim should be created. Default is true.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setCreateUpnClaim.createUpnClaim": {
+    "id": "api.samlResponse.setCreateUpnClaim.createUpnClaim",
+    "type": "boolean",
+    "descriptions": [
+      "Boolean Toggle to create a UPN claim."
+    ],
+    "title": "createUpnClaim",
+    "parentId": "api.samlResponse.setCreateUpnClaim",
+    "globalName": "ApiSamlResponseSetCreateUpnClaimCreateUpnClaim"
+  },
+  "api.samlResponse.setPassthroughClaimsWithNoMapping": {
+    "id": "api.samlResponse.setPassthroughClaimsWithNoMapping",
+    "type": "function",
+    "paramNames": [
+      "passthroughClaimsWithNoMapping"
+    ],
+    "descriptions": [
+      "If true (default), for each claim that is not mapped to the\n    common profile, Auth0 passes through those in the output assertion. If\n    false, those claims won't be mapped."
+    ],
+    "title": "setPassthroughClaimsWithNoMapping",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetPassthroughClaimsWithNoMapping",
+    "returnDescription": "If true (default), for each claim that is not mapped to the\n    common profile, Auth0 passes through those in the output assertion. If\n    false, those claims won't be mapped.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setPassthroughClaimsWithNoMapping.passthroughClaimsWithNoMapping": {
+    "id": "api.samlResponse.setPassthroughClaimsWithNoMapping.passthroughClaimsWithNoMapping",
+    "type": "boolean",
+    "descriptions": [
+      "Boolean Should claims should be mapped to the output\n            assertion."
+    ],
+    "title": "passthroughClaimsWithNoMapping",
+    "parentId": "api.samlResponse.setPassthroughClaimsWithNoMapping",
+    "globalName": "ApiSamlResponseSetPassthroughClaimsWithNoMappingPassthroughClaimsWithNoMapping"
+  },
+  "api.samlResponse.setMapUnknownClaimsAsIs": {
+    "id": "api.samlResponse.setMapUnknownClaimsAsIs",
+    "type": "function",
+    "paramNames": [
+      "mapUnknownClaimsAsIs"
+    ],
+    "descriptions": [
+      "If passthroughClaimsWithNoMapping is true and this\n    is false (default), for each claim not mapped to the common\n    profile Auth0 adds a prefix http://schema.auth0.com. If true,\n    it will pass through the claim as-is."
+    ],
+    "title": "setMapUnknownClaimsAsIs",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetMapUnknownClaimsAsIs",
+    "returnDescription": "If passthroughClaimsWithNoMapping is true and this\n    is false (default), for each claim not mapped to the common\n    profile Auth0 adds a prefix http://schema.auth0.com. If true,\n    it will pass through the claim as-is.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setMapUnknownClaimsAsIs.mapUnknownClaimsAsIs": {
+    "id": "api.samlResponse.setMapUnknownClaimsAsIs.mapUnknownClaimsAsIs",
+    "type": "boolean",
+    "descriptions": [
+      "Boolean Should claims should be mapped as-is."
+    ],
+    "title": "mapUnknownClaimsAsIs",
+    "parentId": "api.samlResponse.setMapUnknownClaimsAsIs",
+    "globalName": "ApiSamlResponseSetMapUnknownClaimsAsIsMapUnknownClaimsAsIs"
+  },
+  "api.samlResponse.setMapIdentities": {
+    "id": "api.samlResponse.setMapIdentities",
+    "type": "function",
+    "paramNames": [
+      "mapIdentities"
+    ],
+    "descriptions": [
+      "If true (default), this adds more information in the token such\n    as the provider (Google, ADFS, AD, etc.) and the access token, if available"
+    ],
+    "title": "setMapIdentities",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetMapIdentities",
+    "returnDescription": "If true (default), this adds more information in the token such\n    as the provider (Google, ADFS, AD, etc.) and the access token, if available",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setMapIdentities.mapIdentities": {
+    "id": "api.samlResponse.setMapIdentities.mapIdentities",
+    "type": "boolean",
+    "descriptions": [
+      "Boolean Should identities be mapped."
+    ],
+    "title": "mapIdentities",
+    "parentId": "api.samlResponse.setMapIdentities",
+    "globalName": "ApiSamlResponseSetMapIdentitiesMapIdentities"
+  },
+  "api.samlResponse.setDestination": {
+    "id": "api.samlResponse.setDestination",
+    "type": "function",
+    "paramNames": [
+      "destination"
+    ],
+    "descriptions": [
+      "Destination of the SAML response. If not specified, it will be\n    AssertionConsumerUrl of SAMLRequest or callback URL if there was no\n    SAMLRequest."
+    ],
+    "title": "setDestination",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetDestination",
+    "returnDescription": "Destination of the SAML response. If not specified, it will be\n    AssertionConsumerUrl of SAMLRequest or callback URL if there was no\n    SAMLRequest.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setDestination.destination": {
+    "id": "api.samlResponse.setDestination.destination",
+    "type": "string",
+    "descriptions": [
+      "String Destination of the SAML response."
+    ],
+    "title": "destination",
+    "parentId": "api.samlResponse.setDestination",
+    "globalName": "ApiSamlResponseSetDestinationDestination"
+  },
+  "api.samlResponse.setRelayState": {
+    "id": "api.samlResponse.setRelayState",
+    "type": "function",
+    "paramNames": [
+      "relayState"
+    ],
+    "descriptions": [
+      "Alter the RelayState of the SAML response. Default is RelayState on SAMLRequest."
+    ],
+    "title": "setRelayState",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetRelayState",
+    "returnDescription": "Alter the RelayState of the SAML response. Default is RelayState on SAMLRequest.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setRelayState.relayState": {
+    "id": "api.samlResponse.setRelayState.relayState",
+    "type": "string",
+    "descriptions": [
+      "String RelayState of the SAML response."
+    ],
+    "title": "relayState",
+    "parentId": "api.samlResponse.setRelayState",
+    "globalName": "ApiSamlResponseSetRelayStateRelayState"
+  },
+  "api.samlResponse.setLifetimeInSeconds": {
+    "id": "api.samlResponse.setLifetimeInSeconds",
+    "type": "function",
+    "paramNames": [
+      "lifetimeInSeconds"
+    ],
+    "descriptions": [
+      "Expiration of the token in seconds. Default is 3600 seconds (1\n    hour)."
+    ],
+    "title": "setLifetimeInSeconds",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetLifetimeInSeconds",
+    "returnDescription": "Expiration of the token in seconds. Default is 3600 seconds (1\n    hour).",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setLifetimeInSeconds.lifetimeInSeconds": {
+    "id": "api.samlResponse.setLifetimeInSeconds.lifetimeInSeconds",
+    "type": "number",
+    "descriptions": [
+      "Number Expiration of the token in seconds."
+    ],
+    "title": "lifetimeInSeconds",
+    "parentId": "api.samlResponse.setLifetimeInSeconds",
+    "globalName": "ApiSamlResponseSetLifetimeInSecondsLifetimeInSeconds"
+  },
+  "api.samlResponse.setSignResponse": {
+    "id": "api.samlResponse.setSignResponse",
+    "type": "function",
+    "paramNames": [
+      "signResponse"
+    ],
+    "descriptions": [
+      "Whether or not the SAML response should be signed. By default the SAML\n    assertion will be signed, but not the SAML response. If true,\n    SAML Response will be signed instead of SAML assertion. Default to\n    false."
+    ],
+    "title": "setSignResponse",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetSignResponse",
+    "returnDescription": "Whether or not the SAML response should be signed. By default the SAML\n    assertion will be signed, but not the SAML response. If true,\n    SAML Response will be signed instead of SAML assertion. Default to\n    false.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setSignResponse.signResponse": {
+    "id": "api.samlResponse.setSignResponse.signResponse",
+    "type": "boolean",
+    "descriptions": [
+      "Boolean Should the SAML response be signed."
+    ],
+    "title": "signResponse",
+    "parentId": "api.samlResponse.setSignResponse",
+    "globalName": "ApiSamlResponseSetSignResponseSignResponse"
+  },
+  "api.samlResponse.setNameIdentifierFormat": {
+    "id": "api.samlResponse.setNameIdentifierFormat",
+    "type": "function",
+    "paramNames": [
+      "nameIdentifierFormat"
+    ],
+    "descriptions": [
+      "Sets the name ID format. Default is\n    urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified."
+    ],
+    "title": "setNameIdentifierFormat",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetNameIdentifierFormat",
+    "returnDescription": "Sets the name ID format. Default is\n    urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setNameIdentifierFormat.nameIdentifierFormat": {
+    "id": "api.samlResponse.setNameIdentifierFormat.nameIdentifierFormat",
+    "type": "string",
+    "descriptions": [
+      "String The Name ID Format."
+    ],
+    "title": "nameIdentifierFormat",
+    "parentId": "api.samlResponse.setNameIdentifierFormat",
+    "globalName": "ApiSamlResponseSetNameIdentifierFormatNameIdentifierFormat"
+  },
+  "api.samlResponse.setNameIdentifierProbes": {
+    "id": "api.samlResponse.setNameIdentifierProbes",
+    "type": "function",
+    "paramNames": [
+      "nameIdentifierProbes"
+    ],
+    "descriptions": [
+      "Auth0 tries to name each of the attributes of this array in order. If one of\nthem has a value, it will use that for the Subject/NameID. The order is:"
+    ],
+    "title": "setNameIdentifierProbes",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetNameIdentifierProbes",
+    "returnDescription": "Auth0 tries to name each of the attributes of this array in order. If one of\nthem has a value, it will use that for the Subject/NameID. The order is:",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setNameIdentifierProbes.nameIdentifierProbes": {
+    "id": "api.samlResponse.setNameIdentifierProbes.nameIdentifierProbes",
+    "type": "string",
+    "descriptions": [
+      "String array An array of attributes to try for the name\n            identifier."
+    ],
+    "title": "nameIdentifierProbes",
+    "parentId": "api.samlResponse.setNameIdentifierProbes",
+    "globalName": "ApiSamlResponseSetNameIdentifierProbesNameIdentifierProbes"
+  },
+  "api.samlResponse.setAuthnContextClassRef": {
+    "id": "api.samlResponse.setAuthnContextClassRef",
+    "type": "function",
+    "paramNames": [
+      "authnContextClassRef"
+    ],
+    "descriptions": [
+      "Default is urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified."
+    ],
+    "title": "setAuthnContextClassRef",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetAuthnContextClassRef",
+    "returnDescription": "Default is urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setAuthnContextClassRef.authnContextClassRef": {
+    "id": "api.samlResponse.setAuthnContextClassRef.authnContextClassRef",
+    "type": "string",
+    "descriptions": [
+      "String The AuthnContextClassRef."
+    ],
+    "title": "authnContextClassRef",
+    "parentId": "api.samlResponse.setAuthnContextClassRef",
+    "globalName": "ApiSamlResponseSetAuthnContextClassRefAuthnContextClassRef"
+  },
+  "api.samlResponse.setSigningCert": {
+    "id": "api.samlResponse.setSigningCert",
+    "type": "function",
+    "paramNames": [
+      "signingCert"
+    ],
+    "descriptions": [
+      "Optionally indicates the public key certificate used to validate SAML\n    requests. If set, SAML requests will be required to be signed. A sample\n    value would be\n    \"-----BEGIN\n      CERTIFICATE-----\\nMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\\n[..all\n      the other lines..]-----END CERTIFICATE-----\\n\"."
+    ],
+    "title": "setSigningCert",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetSigningCert",
+    "returnDescription": "Optionally indicates the public key certificate used to validate SAML\n    requests. If set, SAML requests will be required to be signed. A sample\n    value would be\n    \"-----BEGIN\n      CERTIFICATE-----\\nMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\\n[..all\n      the other lines..]-----END CERTIFICATE-----\\n\".",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setSigningCert.signingCert": {
+    "id": "api.samlResponse.setSigningCert.signingCert",
+    "type": "string",
+    "descriptions": [
+      "String Optional public key certificate used to validate\n            SAML requests."
+    ],
+    "title": "signingCert",
+    "parentId": "api.samlResponse.setSigningCert",
+    "globalName": "ApiSamlResponseSetSigningCertSigningCert"
+  },
+  "api.samlResponse.setIncludeAttributeNameFormat": {
+    "id": "api.samlResponse.setIncludeAttributeNameFormat",
+    "type": "function",
+    "paramNames": [
+      "includeAttributeNameFormat"
+    ],
+    "descriptions": [
+      "When set to true, we infer the NameFormat based on the\n    attribute name. NameFormat values are\n    urn:oasis:names:tc:SAML:2.0:attrname-format:uri,\n    urn:oasis:names:tc:SAML:2.0:attrname-format:basic and\n    urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified.",
+      "If set to false, the attribute NameFormat is not set in the\n    assertion. Default is true."
+    ],
+    "title": "setIncludeAttributeNameFormat",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetIncludeAttributeNameFormat",
+    "returnDescription": "If set to false, the attribute NameFormat is not set in the\n    assertion. Default is true.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setIncludeAttributeNameFormat.includeAttributeNameFormat": {
+    "id": "api.samlResponse.setIncludeAttributeNameFormat.includeAttributeNameFormat",
+    "type": "boolean",
+    "descriptions": [
+      "BooleanShould NameFormat be inferred based on the attribute\n            name."
+    ],
+    "title": "includeAttributeNameFormat",
+    "parentId": "api.samlResponse.setIncludeAttributeNameFormat",
+    "globalName": "ApiSamlResponseSetIncludeAttributeNameFormatIncludeAttributeNameFormat"
+  },
+  "api.samlResponse.setTypedAttributes": {
+    "id": "api.samlResponse.setTypedAttributes",
+    "type": "function",
+    "paramNames": [
+      "typedAttributes"
+    ],
+    "descriptions": [
+      "When set to true, we infer the xs:type of the\n    element. Types are xs:string, xs:boolean,\n    xs:double and xs:anyType. When set to\n    false all xs:type are xs:anyType.\n    Default is true."
+    ],
+    "title": "setTypedAttributes",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetTypedAttributes",
+    "returnDescription": "When set to true, we infer the xs:type of the\n    element. Types are xs:string, xs:boolean,\n    xs:double and xs:anyType. When set to\n    false all xs:type are xs:anyType.\n    Default is true.",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setTypedAttributes.typedAttributes": {
+    "id": "api.samlResponse.setTypedAttributes.typedAttributes",
+    "type": "boolean",
+    "descriptions": [
+      "BooleanShould xs:type be inferred."
+    ],
+    "title": "typedAttributes",
+    "parentId": "api.samlResponse.setTypedAttributes",
+    "globalName": "ApiSamlResponseSetTypedAttributesTypedAttributes"
+  },
+  "api.samlResponse.setEncryptionCert": {
+    "id": "api.samlResponse.setEncryptionCert",
+    "type": "function",
+    "paramNames": [
+      "encryptionCert"
+    ],
+    "descriptions": [
+      "Optionally specify a certificate used to encrypt the SAML assertion. The\n    certificate should be obtained from the service provider. Both the\n    certificate and public key must be specified. A sample value would be\n    \"-----BEGIN\n      CERTIFICATE-----\\nMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\\n[..all\n      the other lines..]-----END CERTIFICATE-----\\n\"."
+    ],
+    "title": "setEncryptionCert",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetEncryptionCert",
+    "returnDescription": "Optionally specify a certificate used to encrypt the SAML assertion. The\n    certificate should be obtained from the service provider. Both the\n    certificate and public key must be specified. A sample value would be\n    \"-----BEGIN\n      CERTIFICATE-----\\nMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\\n[..all\n      the other lines..]-----END CERTIFICATE-----\\n\".",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setEncryptionCert.encryptionCert": {
+    "id": "api.samlResponse.setEncryptionCert.encryptionCert",
+    "type": "string",
+    "descriptions": [
+      "StringOptional certificate to encrypt the SAML assertion."
+    ],
+    "title": "encryptionCert",
+    "parentId": "api.samlResponse.setEncryptionCert",
+    "globalName": "ApiSamlResponseSetEncryptionCertEncryptionCert"
+  },
+  "api.samlResponse.setCert": {
+    "id": "api.samlResponse.setCert",
+    "type": "function",
+    "paramNames": [
+      "cert"
+    ],
+    "descriptions": [
+      "By default, Auth0 will use the private/public key pair assigned to your\n    tenant to sign SAML responses or assertions. For very specific scenarios,\n    you might wish to provide your own certificate and private key.",
+      "Both the certificate and private key must be specified.",
+      "A sample value would be\n    \"-----BEGIN\n      CERTIFICATE-----\\nMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\\n[..all\n      the other lines..]-----END CERTIFICATE-----\\n\"."
+    ],
+    "title": "setCert",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetCert",
+    "returnDescription": "A sample value would be\n    \"-----BEGIN\n      CERTIFICATE-----\\nMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\\n[..all\n      the other lines..]-----END CERTIFICATE-----\\n\".",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setCert.cert": {
+    "id": "api.samlResponse.setCert.cert",
+    "type": "string",
+    "descriptions": [
+      "StringOptional certificate to sign the SAML responses or\n            assertions."
+    ],
+    "title": "cert",
+    "parentId": "api.samlResponse.setCert",
+    "globalName": "ApiSamlResponseSetCertCert"
+  },
+  "api.samlResponse.setKey": {
+    "id": "api.samlResponse.setKey",
+    "type": "function",
+    "paramNames": [
+      "key"
+    ],
+    "descriptions": [
+      "By default, Auth0 will use the private/public key pair assigned to your\n    tenant to sign SAML responses or assertions. For very specific scenarios,\n    you might wish to provide your own certificate and private key.",
+      "Since this private key is sensitive, we recommend using the\n    Add Secret functionality of Actions. See here for more details: Write\n    Your First Action",
+      "Both the certificate and private key must be specified.",
+      "A sample value would be\n    \"-----BEGIN PRIVATE\n      KEY-----\\nnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\\n[..all\n      the other lines..]-----END PRIVATE KEY-----\\n\"."
+    ],
+    "title": "setKey",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetKey",
+    "returnDescription": "A sample value would be\n    \"-----BEGIN PRIVATE\n      KEY-----\\nnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\\n[..all\n      the other lines..]-----END PRIVATE KEY-----\\n\".",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setKey.key": {
+    "id": "api.samlResponse.setKey.key",
+    "type": "string",
+    "descriptions": [
+      "StringOptional private key to sign the SAML responses or\n            assertions."
+    ],
+    "title": "key",
+    "parentId": "api.samlResponse.setKey",
+    "globalName": "ApiSamlResponseSetKeyKey"
+  },
+  "api.samlResponse.setSignatureAlgorithm": {
+    "id": "api.samlResponse.setSignatureAlgorithm",
+    "type": "function",
+    "paramNames": [
+      "signatureAlgorithm"
+    ],
+    "descriptions": [
+      "Deprecated: Default is rsa-sha256"
+    ],
+    "title": "setSignatureAlgorithm",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetSignatureAlgorithm",
+    "returnDescription": "Deprecated: Default is rsa-sha256",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setSignatureAlgorithm.signatureAlgorithm": {
+    "id": "api.samlResponse.setSignatureAlgorithm.signatureAlgorithm",
+    "type": "unknown",
+    "descriptions": [
+      "rsa-sha256 | rsa-sha1.\n            rsa-sha1 should not be used. This is insecure."
+    ],
+    "title": "signatureAlgorithm",
+    "parentId": "api.samlResponse.setSignatureAlgorithm",
+    "globalName": "ApiSamlResponseSetSignatureAlgorithmSignatureAlgorithm"
+  },
+  "api.samlResponse.setDigestAlgorithm": {
+    "id": "api.samlResponse.setDigestAlgorithm",
+    "type": "function",
+    "paramNames": [
+      "digestAlgorithm"
+    ],
+    "descriptions": [
+      "Deprecated: Default is sha256"
+    ],
+    "title": "setDigestAlgorithm",
+    "parentId": "api.samlResponse",
+    "globalName": "ApiSamlResponseSetDigestAlgorithm",
+    "returnDescription": "Deprecated: Default is sha256",
+    "returnEntityType": "unknown"
+  },
+  "api.samlResponse.setDigestAlgorithm.digestAlgorithm": {
+    "id": "api.samlResponse.setDigestAlgorithm.digestAlgorithm",
+    "type": "unknown",
+    "descriptions": [
+      "sha256 | sha1.\n            rsa-sha1 should not be used. This is insecure."
+    ],
+    "title": "digestAlgorithm",
+    "parentId": "api.samlResponse.setDigestAlgorithm",
+    "globalName": "ApiSamlResponseSetDigestAlgorithmDigestAlgorithm"
+  },
+  "api.session": {
+    "id": "api.session",
+    "type": "object",
+    "descriptions": [
+      "Manage sessions, such as by revoking a user session."
+    ],
+    "title": "ApiSession",
+    "parentId": "api",
+    "globalName": "ApiSession"
+  },
+  "api.session.revoke": {
+    "id": "api.session.revoke",
+    "type": "function",
+    "paramNames": [
+      "reason",
+      "options"
+    ],
+    "descriptions": [
+      "Reject the current transaction, revoke the session, and delete associated\n    refresh tokens. This will prevent the user from completing the flow and no\n    further Actions are executed.",
+      "Note This method initiates a session-revoked\n    OIDC Back-Channel Logout Initiator\n    \n    to logout users from all applications bound to the current session. Deletion\n    of session associated refresh tokens is an asynchronous operation.",
+      "Returns a reference to the api object."
+    ],
+    "title": "revoke",
+    "parentId": "api.session",
+    "globalName": "ApiSessionRevoke",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.session.revoke.reason": {
+    "id": "api.session.revoke.reason",
+    "type": "string",
+    "descriptions": [
+      "String. A human-readable explanation for rejecting the\n            login. This is sent as error_description to the application that\n            initiated the request."
+    ],
+    "title": "reason",
+    "parentId": "api.session.revoke",
+    "globalName": "ApiSessionRevokeReason"
+  },
+  "api.session.revoke.options": {
+    "id": "api.session.revoke.options",
+    "type": "unknown",
+    "descriptions": [
+      "preserveRefreshTokens. is a boolean used to specify if\n            revoke will preserve the refresh tokens bound to the session with\n            the same session_id. Defaults to false.",
+      "Example",
+      "api.session.revoke('reason', \n             {'preserveRefreshTokens':true} );Was this helpful?Yes /No"
+    ],
+    "title": "options",
+    "parentId": "api.session.revoke",
+    "globalName": "ApiSessionRevokeOptions"
+  },
+  "api.session.setExpiresAt": {
+    "id": "api.session.setExpiresAt",
+    "type": "function",
+    "paramNames": [
+      "absolute"
+    ],
+    "descriptions": [
+      "Set a new absolute expiration date for a specified session.",
+      "Returns a reference to the api object."
+    ],
+    "title": "setExpiresAt",
+    "parentId": "api.session",
+    "globalName": "ApiSessionSetExpiresAt",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.session.setExpiresAt.absolute": {
+    "id": "api.session.setExpiresAt.absolute",
+    "type": "number",
+    "descriptions": [
+      "Number. The absolute expiry time in milliseconds since the unix epoch."
+    ],
+    "title": "absolute",
+    "parentId": "api.session.setExpiresAt",
+    "globalName": "ApiSessionSetExpiresAtAbsolute"
+  },
+  "api.session.setIdleExpiresAt": {
+    "id": "api.session.setIdleExpiresAt",
+    "type": "function",
+    "paramNames": [
+      "idle"
+    ],
+    "descriptions": [
+      "Set a new inactivity expiration date for a specified session.",
+      "Returns a reference to the api object."
+    ],
+    "title": "setIdleExpiresAt",
+    "parentId": "api.session",
+    "globalName": "ApiSessionSetIdleExpiresAt",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.session.setIdleExpiresAt.idle": {
+    "id": "api.session.setIdleExpiresAt.idle",
+    "type": "number",
+    "descriptions": [
+      "Number. The inactivity expiry time in milliseconds since the unix epoch.",
+      "This method sets the session inactivity timeout for the current interaction. If the method is not reapplied, subsequent successful interactions will override the inactivity timeout using the session inactivity timeout settings."
+    ],
+    "title": "idle",
+    "parentId": "api.session.setIdleExpiresAt",
+    "globalName": "ApiSessionSetIdleExpiresAtIdle"
+  },
+  "api.refreshToken": {
+    "id": "api.refreshToken",
+    "type": "object",
+    "descriptions": [
+      "Manage refresh tokens, such as by revoking a refresh token."
+    ],
+    "title": "ApiRefreshToken",
+    "parentId": "api",
+    "globalName": "ApiRefreshToken"
+  },
+  "api.refreshToken.revoke": {
+    "id": "api.refreshToken.revoke",
+    "type": "function",
+    "paramNames": [
+      "reason"
+    ],
+    "descriptions": [
+      "Reject the current token exchange and revoke the refresh token. This will\n    prevent the user from completing the flow and no further Actions are\n    executed.",
+      "Returns a reference to the api object."
+    ],
+    "title": "revoke",
+    "parentId": "api.refreshToken",
+    "globalName": "ApiRefreshTokenRevoke",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.refreshToken.revoke.reason": {
+    "id": "api.refreshToken.revoke.reason",
+    "type": "string",
+    "descriptions": [
+      "String. A human-readable explanation for rejecting the\n            refresh token. This is sent as error_description to the application\n            that initiated the request."
+    ],
+    "title": "reason",
+    "parentId": "api.refreshToken.revoke",
+    "globalName": "ApiRefreshTokenRevokeReason"
+  },
+  "api.refreshToken.setExpiresAt": {
+    "id": "api.refreshToken.setExpiresAt",
+    "type": "function",
+    "paramNames": [
+      "absolute"
+    ],
+    "descriptions": [
+      "Set a new absolute expiration date for a specified refresh token.",
+      "Returns a reference to the api object."
+    ],
+    "title": "setExpiresAt",
+    "parentId": "api.refreshToken",
+    "globalName": "ApiRefreshTokenSetExpiresAt",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.refreshToken.setExpiresAt.absolute": {
+    "id": "api.refreshToken.setExpiresAt.absolute",
+    "type": "number",
+    "descriptions": [
+      "Number. The absolute expiry time in milliseconds since the unix epoch."
+    ],
+    "title": "absolute",
+    "parentId": "api.refreshToken.setExpiresAt",
+    "globalName": "ApiRefreshTokenSetExpiresAtAbsolute"
+  },
+  "api.refreshToken.setIdleExpiresAt": {
+    "id": "api.refreshToken.setIdleExpiresAt",
+    "type": "function",
+    "paramNames": [
+      "idle"
+    ],
+    "descriptions": [
+      "Set a new inactivity expiration date  for a specified refresh token.",
+      "Returns a reference to the api object."
+    ],
+    "title": "setIdleExpiresAt",
+    "parentId": "api.refreshToken",
+    "globalName": "ApiRefreshTokenSetIdleExpiresAt",
+    "returnDescription": "Returns a reference to the api object.",
+    "returnEntityType": "Api"
+  },
+  "api.refreshToken.setIdleExpiresAt.idle": {
+    "id": "api.refreshToken.setIdleExpiresAt.idle",
+    "type": "number",
+    "descriptions": [
+      "Number. The inactivity expiry time in milliseconds since the unix epoch.",
+      "This method sets the refresh token inactivity timeout for the current interaction. If the method is not reapplied, subsequent successful interactions will override the inactivity timeout using the refresh token inactivity timeout settings."
+    ],
+    "title": "idle",
+    "parentId": "api.refreshToken.setIdleExpiresAt",
+    "globalName": "ApiRefreshTokenSetIdleExpiresAtIdle"
+  }
+}

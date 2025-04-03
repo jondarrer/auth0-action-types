@@ -1,0 +1,672 @@
+{
+  "event.connection": {
+    "id": "event.connection",
+    "type": "object",
+    "descriptions": [
+      "Details about the Connection that was used to register the user."
+    ],
+    "title": "EventConnection",
+    "parentId": "event",
+    "globalName": "EventConnection"
+  },
+  "event.connection.id": {
+    "id": "event.connection.id",
+    "type": "string",
+    "descriptions": [
+      "The connection's unique identifier."
+    ],
+    "title": "EventConnectionId",
+    "parentId": "event.connection",
+    "globalName": "EventConnectionId"
+  },
+  "event.connection.metadata": {
+    "id": "event.connection.metadata",
+    "type": "Map",
+    "descriptions": [
+      "Metadata associated with the connection."
+    ],
+    "title": "EventConnectionMetadata",
+    "parentId": "event.connection",
+    "globalName": "EventConnectionMetadata"
+  },
+  "event.connection.name": {
+    "id": "event.connection.name",
+    "type": "string",
+    "descriptions": [
+      "The name of the connection used to authenticate the user (for example, twitter or some-g-suite-domain)."
+    ],
+    "title": "EventConnectionName",
+    "parentId": "event.connection",
+    "globalName": "EventConnectionName"
+  },
+  "event.connection.strategy": {
+    "id": "event.connection.strategy",
+    "type": "string",
+    "descriptions": [
+      "The type of connection. For social connections, event.connection.strategy === event.connection.name. For enterprise connections, the strategy is waad (Windows Azure AD), ad (Active Directory/LDAP), auth0 (database connections), and so on."
+    ],
+    "title": "EventConnectionStrategy",
+    "parentId": "event.connection",
+    "globalName": "EventConnectionStrategy"
+  },
+  "event.request": {
+    "id": "event.request",
+    "type": "object",
+    "descriptions": [
+      "Details about the request that initiated the transaction."
+    ],
+    "title": "EventRequest",
+    "parentId": "event",
+    "globalName": "EventRequest"
+  },
+  "event.request.geoip": {
+    "id": "event.request.geoip",
+    "type": "object",
+    "descriptions": [
+      "Contains geographical information about the request."
+    ],
+    "title": "EventRequestGeoip",
+    "parentId": "event.request",
+    "globalName": "EventRequestGeoip"
+  },
+  "event.request.geoip.cityName": {
+    "id": "event.request.geoip.cityName",
+    "type": "string",
+    "descriptions": [],
+    "title": "EventRequestGeoipCityName",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipCityName"
+  },
+  "event.request.geoip.continentCode": {
+    "id": "event.request.geoip.continentCode",
+    "type": "string",
+    "descriptions": [],
+    "title": "EventRequestGeoipContinentCode",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipContinentCode"
+  },
+  "event.request.geoip.countryCode": {
+    "id": "event.request.geoip.countryCode",
+    "type": "string",
+    "descriptions": [],
+    "title": "EventRequestGeoipCountryCode",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipCountryCode"
+  },
+  "event.request.geoip.countryCode3": {
+    "id": "event.request.geoip.countryCode3",
+    "type": "string",
+    "descriptions": [],
+    "title": "EventRequestGeoipCountryCode3",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipCountryCode3"
+  },
+  "event.request.geoip.countryName": {
+    "id": "event.request.geoip.countryName",
+    "type": "string",
+    "descriptions": [],
+    "title": "EventRequestGeoipCountryName",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipCountryName"
+  },
+  "event.request.geoip.latitude": {
+    "id": "event.request.geoip.latitude",
+    "type": "number",
+    "descriptions": [],
+    "title": "EventRequestGeoipLatitude",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipLatitude"
+  },
+  "event.request.geoip.longitude": {
+    "id": "event.request.geoip.longitude",
+    "type": "number",
+    "descriptions": [],
+    "title": "EventRequestGeoipLongitude",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipLongitude"
+  },
+  "event.request.geoip.subdivisionCode": {
+    "id": "event.request.geoip.subdivisionCode",
+    "type": "string",
+    "descriptions": [],
+    "title": "EventRequestGeoipSubdivisionCode",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipSubdivisionCode"
+  },
+  "event.request.geoip.subdivisionName": {
+    "id": "event.request.geoip.subdivisionName",
+    "type": "string",
+    "descriptions": [],
+    "title": "EventRequestGeoipSubdivisionName",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipSubdivisionName"
+  },
+  "event.request.geoip.timeZone": {
+    "id": "event.request.geoip.timeZone",
+    "type": "string",
+    "descriptions": [],
+    "title": "EventRequestGeoipTimeZone",
+    "parentId": "event.request.geoip",
+    "globalName": "EventRequestGeoipTimeZone"
+  },
+  "event.request.hostname": {
+    "id": "event.request.hostname",
+    "type": "string",
+    "descriptions": [
+      "The hostname that is being used for the authentication\n              flow."
+    ],
+    "title": "EventRequestHostname",
+    "parentId": "event.request",
+    "globalName": "EventRequestHostname"
+  },
+  "event.request.ip": {
+    "id": "event.request.ip",
+    "type": "string",
+    "descriptions": [
+      "The originating IP address of the request."
+    ],
+    "title": "EventRequestIp",
+    "parentId": "event.request",
+    "globalName": "EventRequestIp"
+  },
+  "event.request.language": {
+    "id": "event.request.language",
+    "type": "string",
+    "descriptions": [
+      "The language requested by the browser."
+    ],
+    "title": "EventRequestLanguage",
+    "parentId": "event.request",
+    "globalName": "EventRequestLanguage"
+  },
+  "event.request.method": {
+    "id": "event.request.method",
+    "type": "string",
+    "descriptions": [
+      "The HTTP method used for the request"
+    ],
+    "title": "EventRequestMethod",
+    "parentId": "event.request",
+    "globalName": "EventRequestMethod"
+  },
+  "event.request.user_agent": {
+    "id": "event.request.user_agent",
+    "type": "string",
+    "descriptions": [
+      "The value of the User-Agent header received when initiating the transaction."
+    ],
+    "title": "EventRequestUser_agent",
+    "parentId": "event.request",
+    "globalName": "EventRequestUser_agent"
+  },
+  "event.tenant": {
+    "id": "event.tenant",
+    "type": "object",
+    "descriptions": [
+      "Details about the Tenant associated with the current transaction."
+    ],
+    "title": "EventTenant",
+    "parentId": "event",
+    "globalName": "EventTenant"
+  },
+  "event.tenant.id": {
+    "id": "event.tenant.id",
+    "type": "string",
+    "descriptions": [
+      "The name of the tenant."
+    ],
+    "title": "EventTenantId",
+    "parentId": "event.tenant",
+    "globalName": "EventTenantId"
+  },
+  "event.transaction": {
+    "id": "event.transaction",
+    "type": "object",
+    "descriptions": [
+      "Details about the current transaction."
+    ],
+    "title": "EventTransaction",
+    "parentId": "event",
+    "globalName": "EventTransaction"
+  },
+  "event.transaction.acr_values": {
+    "id": "event.transaction.acr_values",
+    "type": "unknown",
+    "descriptions": [
+      "Any acr_values provided in the original authentication\n              request."
+    ],
+    "title": "EventTransactionAcr_values",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionAcr_values"
+  },
+  "event.transaction.locale": {
+    "id": "event.transaction.locale",
+    "type": "string",
+    "descriptions": [
+      "The locale to be used for this transaction as determined by comparing the browser's requested languages to the tenant's language settings."
+    ],
+    "title": "EventTransactionLocale",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionLocale"
+  },
+  "event.transaction.login_hint": {
+    "id": "event.transaction.login_hint",
+    "type": "string",
+    "descriptions": [
+      "Hint to the authorization server about the login identifier the end-user might use to log in (if necessary)."
+    ],
+    "title": "EventTransactionLogin_hint",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionLogin_hint"
+  },
+  "event.transaction.prompt": {
+    "id": "event.transaction.prompt",
+    "type": "unknown",
+    "descriptions": [
+      "List of instructions indicating whether the user may be prompted for re-authentication and consent."
+    ],
+    "title": "EventTransactionPrompt",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionPrompt"
+  },
+  "event.transaction.protocol": {
+    "id": "event.transaction.protocol",
+    "type": "string",
+    "descriptions": [
+      "Contains information about the authentication protocol."
+    ],
+    "title": "EventTransactionProtocol",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionProtocol"
+  },
+  "event.transaction.protocol.oidc-basic-profile": {
+    "id": "event.transaction.protocol.oidc-basic-profile",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOidc-Basic-Profile",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOidc-Basic-Profile"
+  },
+  "event.transaction.protocol.oidc-implicit-profile": {
+    "id": "event.transaction.protocol.oidc-implicit-profile",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOidc-Implicit-Profile",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOidc-Implicit-Profile"
+  },
+  "event.transaction.protocol.samlp": {
+    "id": "event.transaction.protocol.samlp",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolSamlp",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolSamlp"
+  },
+  "event.transaction.protocol.wsfed": {
+    "id": "event.transaction.protocol.wsfed",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolWsfed",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolWsfed"
+  },
+  "event.transaction.protocol.wstrust-usernamemixed": {
+    "id": "event.transaction.protocol.wstrust-usernamemixed",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolWstrust-Usernamemixed",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolWstrust-Usernamemixed"
+  },
+  "event.transaction.protocol.oauth2-webauthn": {
+    "id": "event.transaction.protocol.oauth2-webauthn",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOauth2-Webauthn",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOauth2-Webauthn"
+  },
+  "event.transaction.protocol.oauth2-device-code": {
+    "id": "event.transaction.protocol.oauth2-device-code",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOauth2-Device-Code",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOauth2-Device-Code"
+  },
+  "event.transaction.protocol.oauth2-resource-owner": {
+    "id": "event.transaction.protocol.oauth2-resource-owner",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOauth2-Resource-Owner",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOauth2-Resource-Owner"
+  },
+  "event.transaction.protocol.oauth2-resource-owner-jwt-bearer": {
+    "id": "event.transaction.protocol.oauth2-resource-owner-jwt-bearer",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOauth2-Resource-Owner-Jwt-Bearer",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOauth2-Resource-Owner-Jwt-Bearer"
+  },
+  "event.transaction.protocol.oauth2-password": {
+    "id": "event.transaction.protocol.oauth2-password",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOauth2-Password",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOauth2-Password"
+  },
+  "event.transaction.protocol.oauth2-access-token": {
+    "id": "event.transaction.protocol.oauth2-access-token",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOauth2-Access-Token",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOauth2-Access-Token"
+  },
+  "event.transaction.protocol.oauth2-refresh-token": {
+    "id": "event.transaction.protocol.oauth2-refresh-token",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOauth2-Refresh-Token",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOauth2-Refresh-Token"
+  },
+  "event.transaction.protocol.oauth2-token-exchange": {
+    "id": "event.transaction.protocol.oauth2-token-exchange",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionProtocolOauth2-Token-Exchange",
+    "parentId": "event.transaction.protocol",
+    "globalName": "EventTransactionProtocolOauth2-Token-Exchange"
+  },
+  "event.transaction.redirect_uri": {
+    "id": "event.transaction.redirect_uri",
+    "type": "string",
+    "descriptions": [
+      "The URL to which Auth0 will redirect the browser after the transaction is completed."
+    ],
+    "title": "EventTransactionRedirect_uri",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionRedirect_uri"
+  },
+  "event.transaction.requested_scopes": {
+    "id": "event.transaction.requested_scopes",
+    "type": "unknown",
+    "descriptions": [
+      "The scopes requested (if any) when starting this authentication flow."
+    ],
+    "title": "EventTransactionRequested_scopes",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionRequested_scopes"
+  },
+  "event.transaction.response_mode": {
+    "id": "event.transaction.response_mode",
+    "type": "string",
+    "descriptions": [
+      ""
+    ],
+    "title": "EventTransactionResponse_mode",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionResponse_mode"
+  },
+  "event.transaction.response_mode.query": {
+    "id": "event.transaction.response_mode.query",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionResponse_modeQuery",
+    "parentId": "event.transaction.response_mode",
+    "globalName": "EventTransactionResponse_modeQuery"
+  },
+  "event.transaction.response_mode.fragment": {
+    "id": "event.transaction.response_mode.fragment",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionResponse_modeFragment",
+    "parentId": "event.transaction.response_mode",
+    "globalName": "EventTransactionResponse_modeFragment"
+  },
+  "event.transaction.response_mode.form_post": {
+    "id": "event.transaction.response_mode.form_post",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionResponse_modeForm_post",
+    "parentId": "event.transaction.response_mode",
+    "globalName": "EventTransactionResponse_modeForm_post"
+  },
+  "event.transaction.response_mode.web_message": {
+    "id": "event.transaction.response_mode.web_message",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionResponse_modeWeb_message",
+    "parentId": "event.transaction.response_mode",
+    "globalName": "EventTransactionResponse_modeWeb_message"
+  },
+  "event.transaction.response_type": {
+    "id": "event.transaction.response_type",
+    "type": "unknown",
+    "descriptions": [
+      ""
+    ],
+    "title": "EventTransactionResponse_type",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionResponse_type"
+  },
+  "event.transaction.response_type.code": {
+    "id": "event.transaction.response_type.code",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionResponse_typeCode",
+    "parentId": "event.transaction.response_type",
+    "globalName": "EventTransactionResponse_typeCode"
+  },
+  "event.transaction.response_type.token": {
+    "id": "event.transaction.response_type.token",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionResponse_typeToken",
+    "parentId": "event.transaction.response_type",
+    "globalName": "EventTransactionResponse_typeToken"
+  },
+  "event.transaction.response_type.id_token": {
+    "id": "event.transaction.response_type.id_token",
+    "type": "unknown",
+    "descriptions": [],
+    "title": "EventTransactionResponse_typeId_token",
+    "parentId": "event.transaction.response_type",
+    "globalName": "EventTransactionResponse_typeId_token"
+  },
+  "event.transaction.state": {
+    "id": "event.transaction.state",
+    "type": "string",
+    "descriptions": [
+      "An opaque arbitrary alphanumeric string your app adds to the initial request that Auth0 includes when redirecting back to your application."
+    ],
+    "title": "EventTransactionState",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionState"
+  },
+  "event.transaction.ui_locales": {
+    "id": "event.transaction.ui_locales",
+    "type": "unknown",
+    "descriptions": [
+      "The ui_locales provided in the original authentication request."
+    ],
+    "title": "EventTransactionUi_locales",
+    "parentId": "event.transaction",
+    "globalName": "EventTransactionUi_locales"
+  },
+  "event.user": {
+    "id": "event.user",
+    "type": "object",
+    "descriptions": [
+      "An object describing the user on whose behalf the current transaction was initiated."
+    ],
+    "title": "EventUser",
+    "parentId": "event",
+    "globalName": "EventUser"
+  },
+  "event.user.app_metadata": {
+    "id": "event.user.app_metadata",
+    "type": "Map",
+    "descriptions": [
+      "Custom fields that store info about a user that influences the user's access, such as support plan, security roles, or access control groups."
+    ],
+    "title": "EventUserApp_metadata",
+    "parentId": "event.user",
+    "globalName": "EventUserApp_metadata"
+  },
+  "event.user.created_at": {
+    "id": "event.user.created_at",
+    "type": "string",
+    "descriptions": [
+      "Timestamp indicating when the user profile was first created."
+    ],
+    "title": "EventUserCreated_at",
+    "parentId": "event.user",
+    "globalName": "EventUserCreated_at"
+  },
+  "event.user.email": {
+    "id": "event.user.email",
+    "type": "string",
+    "descriptions": [
+      "(unique) User's email address."
+    ],
+    "title": "EventUserEmail",
+    "parentId": "event.user",
+    "globalName": "EventUserEmail"
+  },
+  "event.user.email_verified": {
+    "id": "event.user.email_verified",
+    "type": "boolean",
+    "descriptions": [
+      "Indicates whether the user has verified their email address."
+    ],
+    "title": "EventUserEmail_verified",
+    "parentId": "event.user",
+    "globalName": "EventUserEmail_verified"
+  },
+  "event.user.family_name": {
+    "id": "event.user.family_name",
+    "type": "string",
+    "descriptions": [
+      "User's family name."
+    ],
+    "title": "EventUserFamily_name",
+    "parentId": "event.user",
+    "globalName": "EventUserFamily_name"
+  },
+  "event.user.given_name": {
+    "id": "event.user.given_name",
+    "type": "string",
+    "descriptions": [
+      "User's given name."
+    ],
+    "title": "EventUserGiven_name",
+    "parentId": "event.user",
+    "globalName": "EventUserGiven_name"
+  },
+  "event.user.last_password_reset": {
+    "id": "event.user.last_password_reset",
+    "type": "string",
+    "descriptions": [
+      "Timestamp indicating the last time the user's password was reset/changed. At user creation, this field does not exist. This property is only available for Database connections."
+    ],
+    "title": "EventUserLast_password_reset",
+    "parentId": "event.user",
+    "globalName": "EventUserLast_password_reset"
+  },
+  "event.user.name": {
+    "id": "event.user.name",
+    "type": "string",
+    "descriptions": [
+      "User's full name."
+    ],
+    "title": "EventUserName",
+    "parentId": "event.user",
+    "globalName": "EventUserName"
+  },
+  "event.user.nickname": {
+    "id": "event.user.nickname",
+    "type": "string",
+    "descriptions": [
+      "User's nickname."
+    ],
+    "title": "EventUserNickname",
+    "parentId": "event.user",
+    "globalName": "EventUserNickname"
+  },
+  "event.user.phone_number": {
+    "id": "event.user.phone_number",
+    "type": "string",
+    "descriptions": [
+      "User's phone number."
+    ],
+    "title": "EventUserPhone_number",
+    "parentId": "event.user",
+    "globalName": "EventUserPhone_number"
+  },
+  "event.user.phone_verified": {
+    "id": "event.user.phone_verified",
+    "type": "unknown",
+    "descriptions": [
+      "Indicates whether the user has verified their phone number."
+    ],
+    "title": "EventUserPhone_verified",
+    "parentId": "event.user",
+    "globalName": "EventUserPhone_verified"
+  },
+  "event.user.picture": {
+    "id": "event.user.picture",
+    "type": "string",
+    "descriptions": [
+      "URL pointing to the\n              user's profile picture."
+    ],
+    "title": "EventUserPicture",
+    "parentId": "event.user",
+    "globalName": "EventUserPicture"
+  },
+  "event.user.updated_at": {
+    "id": "event.user.updated_at",
+    "type": "string",
+    "descriptions": [
+      "Timestamp indicating when the user's profile was last updated/modified."
+    ],
+    "title": "EventUserUpdated_at",
+    "parentId": "event.user",
+    "globalName": "EventUserUpdated_at"
+  },
+  "event.user.user_id": {
+    "id": "event.user.user_id",
+    "type": "string",
+    "descriptions": [
+      "(unique) User's unique identifier."
+    ],
+    "title": "EventUserUser_id",
+    "parentId": "event.user",
+    "globalName": "EventUserUser_id"
+  },
+  "event.user.user_metadata": {
+    "id": "event.user.user_metadata",
+    "type": "Map",
+    "descriptions": [
+      "Custom fields that store info about a user that does not impact what they can or cannot access, such as work address, home address, or user preferences."
+    ],
+    "title": "EventUserUser_metadata",
+    "parentId": "event.user",
+    "globalName": "EventUserUser_metadata"
+  },
+  "event.user.username": {
+    "id": "event.user.username",
+    "type": "string",
+    "descriptions": [
+      "(unique) User's username."
+    ],
+    "title": "EventUserUsername",
+    "parentId": "event.user",
+    "globalName": "EventUserUsername"
+  }
+}
